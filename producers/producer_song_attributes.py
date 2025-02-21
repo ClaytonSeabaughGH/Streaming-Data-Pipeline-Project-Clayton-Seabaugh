@@ -64,34 +64,26 @@ def generate_song_attributes():
     GENRES = ["Rock", "Pop", "Jazz", "Classical", "Hip-Hop"]
 
     while True:
-        adjective = random.choice(ADJECTIVES)
-        action = random.choice(ACTIONS)
-        topic = random.choice(TOPICS)
-        author = random.choice(AUTHORS)
-        message_text = f"I just {action} {topic}! It was {adjective}."
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        title = random.choice(TITLES)
+        artist = random.choice(ARTISTS)
+        genre = random.choice(GENRES)
+        
+        duration_seconds = random.randint(180, 600)  # Random duration between 3 and 10 minutes
+        release_year = random.randint(1960, 2020)
+        sentiment = assess_sentiment(title, artist)
 
-        # Find category based on keywords
-        keyword_mentioned = next(
-            (word for word in KEYWORD_CATEGORIES if word in topic), "other"
-        )
-        category = KEYWORD_CATEGORIES.get(keyword_mentioned, "other")
-
-        # Assess sentiment
-        sentiment = assess_sentiment(message_text)
-
-        # Create JSON message
+      # Create JSON message
         json_message = {
-            "message": message_text,
-            "author": author,
-            "timestamp": timestamp,
-            "category": category,
+            "title": title,
+            "artist": artist,
+            "genre": genre,
+            "duration_seconds": duration_seconds,
+            "release_year": release_year,
             "sentiment": sentiment,
-            "keyword_mentioned": keyword_mentioned,
-            "message_length": len(message_text),
         }
 
         yield json_message
+
 
 
 #####################################
