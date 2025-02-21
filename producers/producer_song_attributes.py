@@ -1,20 +1,19 @@
 """
-producer_seabaugh.py
+producer_song_attributes.py
 
-Stream JSON data to a file and - if available - a Kafka topic.
+Stream JSON data containing song attributes to a file and - if available - a Kafka topic.
 
 Example JSON message
 {
-    "message": "I just shared a meme! It was amazing.",
-    "author": "Charlie",
-    "timestamp": "2025-01-29 14:35:20",
-    "category": "humor",
-    "sentiment": 0.87,
-    "keyword_mentioned": "meme",
-    "message_length": 42
+    "title": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "genre": "Rock",
+    "duration_seconds": 354,
+    "release_year": 1975,
+    "sentiment": 0.92
 }
 
-Environment variables are in utils/utils_config module. 
+Environment variables are in utils/utils_config module.
 """
 
 #####################################
@@ -43,7 +42,7 @@ from utils.utils_logger import logger
 #####################################
 
 
-def assess_sentiment(text: str) -> float:
+def assess_sentiment(title: str, artist: str) -> float:
     """
     Stub for sentiment analysis.
     Returns a random float between 0 and 1 for now.
@@ -56,34 +55,14 @@ def assess_sentiment(text: str) -> float:
 #####################################
 
 
-def generate_messages():
+def generate_song_attributes():
     """
-    Generate a stream of JSON messages.
+   Generate a stream of JSON messages containing song attributes.
     """
-    ADJECTIVES = ["amazing", "funny", "boring", "exciting", "weird"]
-    ACTIONS = ["found", "saw", "tried", "shared", "loved"]
-    TOPICS = [
-        "a movie",
-        "a meme",
-        "an app",
-        "a trick",
-        "a story",
-        "Python",
-        "JavaScript",
-        "recipe",
-        "travel",
-        "game",
-    ]
-    AUTHORS = ["Alice", "Bob", "Charlie", "Eve"]
-    KEYWORD_CATEGORIES = {
-        "meme": "humor",
-        "Python": "tech",
-        "JavaScript": "tech",
-        "recipe": "food",
-        "travel": "travel",
-        "movie": "entertainment",
-        "game": "gaming",
-    }
+    TITLES = ["Bohemian Rhapsody", "Stairway to Heaven", "Hotel California", "Smells Like Teen Spirit", "Imagine"]
+    ARTISTS = ["Queen", "Led Zeppelin", "Eagles", "Nirvana", "John Lennon"]
+    GENRES = ["Rock", "Pop", "Jazz", "Classical", "Hip-Hop"]
+
     while True:
         adjective = random.choice(ADJECTIVES)
         action = random.choice(ACTIONS)
