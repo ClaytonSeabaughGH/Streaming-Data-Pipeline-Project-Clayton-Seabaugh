@@ -1,12 +1,4 @@
-{"message": "I just loved a trick! It was boring.", "author": "Charlie", "timestamp": "2025-02-20 20:31:37", "category": "other", "sentiment": 0.7, "keyword_mentioned": "other", "message_length": 36}
-{"message": "I just loved a trick! It was boring.", "author": "Charlie", "timestamp": "2025-02-20 20:31:42", "category": "other", "sentiment": 0.92, "keyword_mentioned": "other", "message_length": 36}
-{"message": "I just tried recipe! It was amazing.", "author": "Charlie", "timestamp": "2025-02-20 20:31:47", "category": "food", "sentiment": 0.74, "keyword_mentioned": "recipe", "message_length": 36}
-{"message": "I just found a story! It was funny.", "author": "Bob", "timestamp": "2025-02-20 20:31:52", "category": "other", "sentiment": 0.96, "keyword_mentioned": "other", "message_length": 35}
-{"message": "I just saw game! It was weird.", "author": "Alice", "timestamp": "2025-02-20 20:31:57", "category": "gaming", "sentiment": 0.15, "keyword_mentioned": "game", "message_length": 30}
-{"message": "I just loved Python! It was amazing.", "author": "Charlie", "timestamp": "2025-02-20 20:32:02", "category": "tech", "sentiment": 0.7, "keyword_mentioned": "Python", "message_length": 36}
-{"message": "I just tried a movie! It was amazing.", "author": "Eve", "timestamp": "2025-02-20 20:32:07", "category": "entertainment", "sentiment": 0.71, "keyword_mentioned": "movie", "message_length": 37}
-{"message": "I just found game! It was boring.", "author": "Alice", "timestamp": "2025-02-20 20:32:12", "category": "gaming", "sentiment": 0.92, "keyword_mentioned": "game", "message_length": 33}
-{"message": "I just loved a movie! It was amazing.", "author": "Bob", "timestamp": "2025-02-20 20:32:17", "category": "entertainment", "sentiment": 0.39, "keyword_mentioned": "movie", "message_length": 37}
-{"message": "I just loved a story! It was funny.", "author": "Charlie", "timestamp": "2025-02-20 20:32:22", "category": "other", "sentiment": 0.6, "keyword_mentioned": "other", "message_length": 35}
-{"message": "I just shared a meme! It was exciting.", "author": "Charlie", "timestamp": "2025-02-20 20:32:27", "category": "humor", "sentiment": 0.74, "keyword_mentioned": "meme", "message_length": 38}
-{"message": "I just loved an app! It was funny.", "author": "Charlie", "timestamp": "2025-02-20 20:32:32", "category": "other", "sentiment": 0.81, "keyword_mentioned": "other", "message_length": 34}
+{"title": "Hotel California", "artist": "Led Zeppelin", "genre": "Jazz", "duration_seconds": 447, "release_year": 1976, "sentiment": 0.18}
+{"title": "Imagine", "artist": "Nirvana", "genre": "Classical", "duration_seconds": 493, "release_year": 1970, "sentiment": 0.4}
+{"title": "Imagine", "artist": "Nirvana", "genre": "Pop", "duration_seconds": 450, "release_year": 1961, "sentiment": 0.41}
+{"title": "Bohemian Rhapsody", "artist": "Eagles", "genre": "Pop", "duration_seconds": 320, "release_year": 1983, "sentiment": 0.23}

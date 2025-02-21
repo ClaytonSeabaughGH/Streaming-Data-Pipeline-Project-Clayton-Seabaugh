@@ -85,7 +85,6 @@ def generate_song_attributes():
         yield json_message
 
 
-
 #####################################
 # Define Main Function
 #####################################
@@ -145,7 +144,7 @@ def main() -> None:
 
     logger.info("STEP 5. Generate messages continuously.")
     try:
-        for message in generate_messages():
+        for message in generate_song_attributes():
             logger.info(message)
 
             with live_data_path.open("a") as f:
