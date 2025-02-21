@@ -1,13 +1,8 @@
 """
-kafka_consumer_seabaugh.py
+kafka_consumer_song_attributes.py
 
-Consume json messages from a live data file. 
-Insert the processed messages into a database.
-
-Enhancements:
-- Track and alert for categories based on keyword mentions using KEYWORD_CATEGORIES.
-- Insert processed messages into SQLite with determined categories.
-- Track sentiment categories (positive, negative, neutral) and store them in the database.
+Consume JSON messages containing song attributes from a Kafka topic or file.
+Store the data in a SQLite database and create a line graph of release years over time.
 """
 
 #####################################
