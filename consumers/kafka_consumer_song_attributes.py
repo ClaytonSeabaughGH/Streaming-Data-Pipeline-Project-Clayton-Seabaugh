@@ -14,9 +14,13 @@ import json
 import os
 import pathlib
 import sys
+from collections import defaultdict
+from datetime import datetime
 
 # import external modules
 from kafka import KafkaConsumer
+import matplotlib.pyplot as plt
+import sqlite3
 
 # import from local modules
 import utils.utils_config as config
@@ -27,40 +31,6 @@ from utils.utils_producer import verify_services, is_topic_available
 # Ensure the parent directory is in sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-# Define keyword to category mapping
-KEYWORD_CATEGORIES = {
-    "meme": "humor",
-    "Python": "tech",
-    "JavaScript": "tech",
-    "recipe": "food",
-    "travel": "travel",
-    "movie": "entertainment",
-    "game": "gaming",
-}
-
-#####################################
-# Function to Categorize Sentiment
-#####################################
-
-
-def categorize_sentiment(sentiment_score: float) -> str:
-    """
-    Categorize the sentiment based on the sentiment score.
-
-    Args:
-        sentiment_score (float): The sentiment score.
-
-    Returns:
-        str: The sentiment category ('positive', 'negative', or 'neutral').
-    """
-    if sentiment_score > 0.1:
-        return "positive"
-    elif sentiment_score < -0.1:
-        return "negative"
-    else:
-        return "neutral"
-
-
 #####################################
 # Function to Process a Single Message
 #####################################
@@ -68,43 +38,25 @@ def categorize_sentiment(sentiment_score: float) -> str:
 
 def process_message(message: dict) -> dict:
     """
-    Process and transform a single JSON message.
-    Determines category based on keyword_mentioned using KEYWORD_CATEGORIES.
-    Converts message fields to appropriate data types.
+    Process and transform a single JSON message containing song attributes.
 
     Args:
         message (dict): The JSON message as a Python dictionary.
 
     Returns:
-        dict: Processed message with determined category and sentiment category.
+        dict: Processed message with additional fields if needed.
     """
     logger.info("Called process_message() with:")
     logger.info(f"   {message=}")
     processed_message = None
     try:
-        keyword_mentioned = message.get("keyword_mentioned")
-        category = KEYWORD_CATEGORIES.get(keyword_mentioned, "unknown")
-        sentiment_score = float(message.get("sentiment", 0.0))
-        sentiment_category = categorize_sentiment(sentiment_score)
-
-        # Log alerts based on keyword and category detection
-        if keyword_mentioned:
-            if category != "unknown":
-                logger.info(f"Alert: Detected category '{category}' for keyword '{keyword_mentioned}'")
-            else:
-                logger.warning(f"Keyword '{keyword_mentioned}' not found in categories")
-        else:
-            logger.warning("No keyword mentioned in message")
-
         processed_message = {
-            "message": message.get("message"),
-            "author": message.get("author"),
-            "timestamp": message.get("timestamp"),
-            "category": category,
-            "sentiment": sentiment_score,
-            "sentiment_category": sentiment_category,
-            "keyword_mentioned": keyword_mentioned,
-            "message_length": int(message.get("message_length", 0)),
+            "title": message.get("title"),
+            "artist": message.get("artist"),
+            "genre": message.get("genre"),
+            "duration_seconds": int(message.get("duration_seconds", 0)),
+            "release_year": int(message.get("release_year", 0)),
+            "sentiment": float(message.get("sentiment", 0.0)),
         }
         logger.info(f"Processed message: {processed_message}")
     except Exception as e:
@@ -119,26 +71,22 @@ def process_message(message: dict) -> dict:
 
 def init_db(sql_path: pathlib.Path):
     """
-    Initialize the SQLite database with a table to store messages.
+    Initialize the SQLite database with a table to store song attributes.
 
     Args:
         sql_path (pathlib.Path): Path to the SQLite database file.
     """
-    import sqlite3
-
     conn = sqlite3.connect(sql_path)
     cursor = conn.cursor()
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS messages (
+        CREATE TABLE IF NOT EXISTS songs (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            message TEXT,
-            author TEXT,
-            timestamp TEXT,
-            category TEXT,
-            sentiment REAL,
-            sentiment_category TEXT,
-            keyword_mentioned TEXT,
-            message_length INTEGER
+            title TEXT,
+            artist TEXT,
+            genre TEXT,
+            duration_seconds INTEGER,
+            release_year INTEGER,
+            sentiment REAL
         )
     ''')
     conn.commit()
@@ -158,26 +106,67 @@ def insert_message(message: dict, sql_path: pathlib.Path):
         message (dict): The processed message.
         sql_path (pathlib.Path): Path to the SQLite database file.
     """
-    import sqlite3
-
     conn = sqlite3.connect(sql_path)
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO messages (
-            message, author, timestamp, category, sentiment, sentiment_category, keyword_mentioned, message_length
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO songs (
+            title, artist, genre, duration_seconds, release_year, sentiment
+        ) VALUES (?, ?, ?, ?, ?, ?)
     ''', (
-        message["message"],
-        message["author"],
-        message["timestamp"],
-        message["category"],
+        message["title"],
+        message["artist"],
+        message["genre"],
+        message["duration_seconds"],
+        message["release_year"],
         message["sentiment"],
-        message["sentiment_category"],
-        message["keyword_mentioned"],
-        message["message_length"],
     ))
     conn.commit()
     conn.close()
+
+
+#####################################
+# Generate Line Graph of Release Years
+#####################################
+
+
+def generate_release_year_graph(sql_path: pathlib.Path):
+    """
+    Generate a line graph of release years over time.
+
+    Args:
+        sql_path (pathlib.Path): Path to the SQLite database file.
+    """
+    conn = sqlite3.connect(sql_path)
+    cursor = conn.cursor()
+
+    # Query release years and their counts
+    cursor.execute('''
+        SELECT release_year, COUNT(*) as count
+        FROM songs
+        GROUP BY release_year
+        ORDER BY release_year
+    ''')
+    data = cursor.fetchall()
+    conn.close()
+
+    if not data:
+        logger.warning("No data available to generate the graph.")
+        return
+
+    # Extract years and counts
+    years = [row[0] for row in data]
+    counts = [row[1] for row in data]
+
+    # Plot the data
+    plt.figure(figsize=(10, 6))
+    plt.plot(years, counts, marker="o", linestyle="-", color="b")
+    plt.title("Song Release Years Over Time")
+    plt.xlabel("Release Year")
+    plt.ylabel("Number of Songs")
+    plt.grid(True)
+    plt.savefig("release_years_graph.png")
+    plt.close()
+    logger.info("Generated release year graph: release_years_graph.png")
 
 
 #####################################
@@ -250,6 +239,8 @@ def consume_messages_from_kafka(
             processed_message = process_message(message.value)
             if processed_message:
                 insert_message(processed_message, sql_path)
+                # Generate graph after inserting new data
+                generate_release_year_graph(sql_path)
     except Exception as e:
         logger.error(f"ERROR: Could not consume messages from Kafka: {e}")
         raise
