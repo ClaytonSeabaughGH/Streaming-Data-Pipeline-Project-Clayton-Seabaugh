@@ -1,4 +1,15 @@
-{"title": "Hotel California", "artist": "Led Zeppelin", "genre": "Jazz", "duration_seconds": 447, "release_year": 1976, "sentiment": 0.18}
-{"title": "Imagine", "artist": "Nirvana", "genre": "Classical", "duration_seconds": 493, "release_year": 1970, "sentiment": 0.4}
-{"title": "Imagine", "artist": "Nirvana", "genre": "Pop", "duration_seconds": 450, "release_year": 1961, "sentiment": 0.41}
-{"title": "Bohemian Rhapsody", "artist": "Eagles", "genre": "Pop", "duration_seconds": 320, "release_year": 1983, "sentiment": 0.23}
+{"title": "Smells Like Teen Spirit", "artist": "Queen", "genre": "Hip-Hop", "duration_seconds": 466, "release_year": 1974, "sentiment": 0.71}
+{"title": "Imagine", "artist": "John Lennon", "genre": "Jazz", "duration_seconds": 200, "release_year": 2003, "sentiment": 0.72}
+{"title": "Smells Like Teen Spirit", "artist": "Eagles", "genre": "Pop", "duration_seconds": 507, "release_year": 2014, "sentiment": 0.4}
+{"title": "Smells Like Teen Spirit", "artist": "Nirvana", "genre": "Hip-Hop", "duration_seconds": 412, "release_year": 1973, "sentiment": 0.92}
+{"title": "Stairway to Heaven", "artist": "Queen", "genre": "Hip-Hop", "duration_seconds": 479, "release_year": 1965, "sentiment": 0.05}
+{"title": "Bohemian Rhapsody", "artist": "John Lennon", "genre": "Classical", "duration_seconds": 278, "release_year": 2018, "sentiment": 0.76}
+{"title": "Stairway to Heaven", "artist": "Eagles", "genre": "Classical", "duration_seconds": 497, "release_year": 1980, "sentiment": 0.01}
+{"title": "Hotel California", "artist": "Nirvana", "genre": "Jazz", "duration_seconds": 202, "release_year": 2001, "sentiment": 0.76}
+{"title": "Imagine", "artist": "John Lennon", "genre": "Jazz", "duration_seconds": 581, "release_year": 1982, "sentiment": 0.58}
+{"title": "Hotel California", "artist": "Eagles", "genre": "Rock", "duration_seconds": 186, "release_year": 1968, "sentiment": 0.4}
+{"title": "Bohemian Rhapsody", "artist": "Led Zeppelin", "genre": "Jazz", "duration_seconds": 313, "release_year": 1981, "sentiment": 0.61}
+{"title": "Smells Like Teen Spirit", "artist": "Queen", "genre": "Hip-Hop", "duration_seconds": 334, "release_year": 1999, "sentiment": 0.2}
+{"title": "Imagine", "artist": "Nirvana", "genre": "Rock", "duration_seconds": 554, "release_year": 2019, "sentiment": 0.68}
+{"title": "Imagine", "artist": "Nirvana", "genre": "Classical", "duration_seconds": 406, "release_year": 1978, "sentiment": 0.67}
+{"title": "Imagine", "artist": "Nirvana", "genre": "Classical", "duration_seconds": 226, "release_year": 2020, "sentiment": 0.64}

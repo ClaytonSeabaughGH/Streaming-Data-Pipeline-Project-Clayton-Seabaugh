@@ -76,6 +76,8 @@
 # ======================================================
 # ESSENTIAL TOOLS
 # ======================================================
+# Graph generation in consumer
+matplotlib
 
 # Up-to-date package management tools
 pip
