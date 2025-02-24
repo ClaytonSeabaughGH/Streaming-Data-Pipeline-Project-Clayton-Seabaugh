@@ -214,6 +214,9 @@ def generate_combined_graphs(sql_path: pathlib.Path):
 
     # Adjust layout and save figure
     plt.tight_layout()
+    plt.subplots_adjust(wspace=0.3) 
+
+    # Save figure
     plt.savefig("combined_graphs.png")
     plt.close()
     logger.info("Generated combined graph: combined_graphs.png")
