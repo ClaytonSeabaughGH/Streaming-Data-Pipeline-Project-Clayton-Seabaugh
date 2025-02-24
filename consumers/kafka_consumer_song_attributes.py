@@ -123,15 +123,16 @@ def insert_message(message: dict, sql_path: pathlib.Path):
     conn.commit()
     conn.close()
 
-
 #####################################
-# Generate Line Graph of Release Years
+# Generate Combined graphs
 #####################################
 
-
-def generate_release_year_graph(sql_path: pathlib.Path):
+def generate_combined_graphs(sql_path: pathlib.Path):
     """
-    Generate a line graph of release years over time.
+    Generate a single PNG image with three subplots:
+    1. Release Years Over Time (Line Chart)
+    2. Average Sentiment Over Time (Line Chart)
+    3. Genre Distribution (Bar Chart)
 
     Args:
         sql_path (pathlib.Path): Path to the SQLite database file.
@@ -139,101 +140,78 @@ def generate_release_year_graph(sql_path: pathlib.Path):
     conn = sqlite3.connect(sql_path)
     cursor = conn.cursor()
 
-    # Query release years and their counts
+    # Fetch Release Year Data
     cursor.execute('''
         SELECT release_year, COUNT(*) as count
         FROM songs
         GROUP BY release_year
         ORDER BY release_year
     ''')
-    data = cursor.fetchall()
-    conn.close()
+    release_year_data = cursor.fetchall()
 
-    if not data:
-        logger.warning("No data available to generate the graph.")
-        return
-
-    # Extract years and counts
-    years = [row[0] for row in data]
-    counts = [row[1] for row in data]
-
-    # Plot the data
-    plt.figure(figsize=(10, 6))
-    plt.plot(years, counts, marker="o", linestyle="-", color="b")
-    plt.title("Song Release Years Over Time")
-    plt.xlabel("Release Year")
-    plt.ylabel("Number of Songs")
-    plt.grid(True)
-    plt.savefig("release_years_graph.png")
-    plt.close()
-    logger.info("Generated release year graph: release_years_graph.png")
-
-#####################################
-# Generate Line Graph of Sentiment Over Time
-#####################################
-
-def generate_sentiment_over_time_graph(sql_path: pathlib.Path):
-    conn = sqlite3.connect(sql_path)
-    cursor = conn.cursor()
+    # Fetch Sentiment Data
     cursor.execute('''
         SELECT release_year, AVG(sentiment) as avg_sentiment
         FROM songs
         GROUP BY release_year
         ORDER BY release_year
     ''')
-    data = cursor.fetchall()
-    conn.close()
+    sentiment_data = cursor.fetchall()
 
-    if not data:
-        logger.warning("No data available to generate the sentiment graph.")
-        return
-
-    years = [row[0] for row in data]
-    sentiments = [row[1] for row in data]
-
-    plt.figure(figsize=(10, 6))
-    plt.plot(years, sentiments, marker="o", linestyle="-", color="r")
-    plt.title("Average Song Sentiment Over Time")
-    plt.xlabel("Release Year")
-    plt.ylabel("Average Sentiment")
-    plt.grid(True)
-    plt.savefig("sentiment_over_time_graph.png")
-    plt.close()
-    logger.info("Generated sentiment over time graph: sentiment_over_time_graph.png")
-
-
-#####################################
-# Generate Genre Distribution Graph
-#####################################
-
-def generate_genre_distribution_graph(sql_path: pathlib.Path):
-    conn = sqlite3.connect(sql_path)
-    cursor = conn.cursor()
+    # Fetch Genre Data
     cursor.execute('''
         SELECT genre, COUNT(*) as count
         FROM songs
         GROUP BY genre
     ''')
-    data = cursor.fetchall()
+    genre_data = cursor.fetchall()
+
     conn.close()
 
-    if not data:
-        logger.warning("No data available to generate the genre distribution graph.")
+    # If no data, return early
+    if not (release_year_data and sentiment_data and genre_data):
+        logger.warning("No sufficient data available to generate combined graphs.")
         return
 
-    genres = [row[0] for row in data]
-    counts = [row[1] for row in data]
+    # Extract data points
+    years_release = [row[0] for row in release_year_data]
+    counts_release = [row[1] for row in release_year_data]
 
-    plt.figure(figsize=(10, 6))
-    plt.bar(genres, counts, color="skyblue")
-    plt.title("Song Genre Distribution")
-    plt.xlabel("Genre")
-    plt.ylabel("Number of Songs")
-    plt.xticks(rotation=45, ha="right")
+    years_sentiment = [row[0] for row in sentiment_data]
+    sentiments = [row[1] for row in sentiment_data]
+
+    genres = [row[0] for row in genre_data]
+    genre_counts = [row[1] for row in genre_data]
+
+    # Create subplots (1 row, 3 columns)
+    fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+
+    # Release Year Graph
+    axes[0].plot(years_release, counts_release, marker="o", linestyle="-", color="b")
+    axes[0].set_title("Song Release Years Over Time")
+    axes[0].set_xlabel("Release Year")
+    axes[0].set_ylabel("Number of Songs")
+    axes[0].grid(True)
+
+    # Sentiment Graph
+    axes[1].plot(years_sentiment, sentiments, marker="o", linestyle="-", color="r")
+    axes[1].set_title("Average Song Sentiment Over Time")
+    axes[1].set_xlabel("Release Year")
+    axes[1].set_ylabel("Average Sentiment")
+    axes[1].grid(True)
+
+    # Genre Distribution
+    axes[2].bar(genres, genre_counts, color="skyblue")
+    axes[2].set_title("Song Genre Distribution")
+    axes[2].set_xlabel("Genre")
+    axes[2].set_ylabel("Number of Songs")
+    axes[2].tick_params(axis="x", rotation=45)
+
+    # Adjust layout and save figure
     plt.tight_layout()
-    plt.savefig("genre_distribution_graph.png")
+    plt.savefig("combined_graphs.png")
     plt.close()
-    logger.info("Generated genre distribution graph: genre_distribution_graph.png")
+    logger.info("Generated combined graph: combined_graphs.png")
 
 #####################################
 # Consume Messages from Kafka Topic
@@ -307,9 +285,7 @@ def consume_messages_from_kafka(
             if processed_message:
                 insert_message(processed_message, sql_path)
                 # Generate graph after inserting new data
-                generate_release_year_graph(sql_path)
-                generate_sentiment_over_time_graph(sql_path)  # Call for sentiment graph
-                generate_genre_distribution_graph(sql_path)  # Call for genre distribution graph
+                generate_combined_graphs(sql_path)
     except Exception as e:
         logger.error(f"ERROR: Could not consume messages from Kafka: {e}")
         raise
