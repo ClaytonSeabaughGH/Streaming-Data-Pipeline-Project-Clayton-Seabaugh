@@ -3889,3 +3889,89 @@
 2025-02-23 20:16:15.833 | INFO     | __main__:main:169 - TRY/FINALLY: Producer shutting down.
 2025-02-23 20:16:17.111 | WARNING  | __main__:main:342 - Consumer interrupted by user.
 2025-02-23 20:16:17.111 | INFO     | __main__:main:346 - Consumer shutting down.
+2025-02-24 14:06:44.643 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-24 14:06:44.644 | INFO     | __main__:main:95 - Starting Producer to run continuously.
+2025-02-24 14:06:44.644 | INFO     | __main__:main:96 - Things can fail or get interrupted, so use a try block.
+2025-02-24 14:06:44.644 | INFO     | __main__:main:97 - Moved .env variables into a utils config module.
+2025-02-24 14:06:44.644 | INFO     | __main__:main:99 - STEP 1. Read required environment variables.
+2025-02-24 14:06:44.644 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-24 14:06:44.644 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-24 14:06:44.644 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-24 14:06:44.644 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\clayt\Documents\buzzline-06-seabaugh\data
+2025-02-24 14:06:44.644 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: C:\Users\clayt\Documents\buzzline-06-seabaugh\data\project_live.json
+2025-02-24 14:06:44.644 | INFO     | __main__:main:110 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-24 14:06:44.647 | INFO     | __main__:main:115 - Deleted existing live data file.
+2025-02-24 14:06:44.647 | INFO     | __main__:main:117 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-24 14:06:44.648 | INFO     | __main__:main:123 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-24 14:06:44.648 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-24 14:06:44.651 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-24 14:06:44.652 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-24 14:06:44.983 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': '_bEqbanCQc--nuPLzahkuQ', 'controller_id': 1001}
+2025-02-24 14:06:45.095 | INFO     | __main__:main:132 - Kafka producer connected to Localhost:9092
+2025-02-24 14:06:45.096 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-24 14:06:45.422 | INFO     | utils.utils_producer:create_kafka_topic:154 - Creating 'buzzline'.
+2025-02-24 14:06:45.538 | INFO     | utils.utils_producer:create_kafka_topic:159 - Topic 'buzzline' created successfully.
+2025-02-24 14:06:45.538 | INFO     | __main__:main:140 - Kafka topic 'buzzline' is ready.
+2025-02-24 14:06:45.538 | INFO     | __main__:main:145 - STEP 5. Generate messages continuously.
+2025-02-24 14:06:45.539 | INFO     | __main__:main:148 - {'title': 'Hotel California', 'artist': 'John Lennon', 'genre': 'Jazz', 'duration_seconds': 263, 'release_year': 1984, 'sentiment': 0.22}
+2025-02-24 14:06:45.539 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Hotel California', 'artist': 'John Lennon', 'genre': 'Jazz', 'duration_seconds': 263, 'release_year': 1984, 'sentiment': 0.22}
+2025-02-24 14:06:45.596 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Hotel California', 'artist': 'John Lennon', 'genre': 'Jazz', 'duration_seconds': 263, 'release_year': 1984, 'sentiment': 0.22}
+2025-02-24 14:06:50.597 | INFO     | __main__:main:148 - {'title': 'Imagine', 'artist': 'Queen', 'genre': 'Rock', 'duration_seconds': 406, 'release_year': 1978, 'sentiment': 0.24}
+2025-02-24 14:06:50.599 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Imagine', 'artist': 'Queen', 'genre': 'Rock', 'duration_seconds': 406, 'release_year': 1978, 'sentiment': 0.24}
+2025-02-24 14:06:50.601 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Imagine', 'artist': 'Queen', 'genre': 'Rock', 'duration_seconds': 406, 'release_year': 1978, 'sentiment': 0.24}
+2025-02-24 14:06:55.603 | INFO     | __main__:main:148 - {'title': 'Smells Like Teen Spirit', 'artist': 'John Lennon', 'genre': 'Classical', 'duration_seconds': 435, 'release_year': 1985, 'sentiment': 0.66}
+2025-02-24 14:06:55.604 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Smells Like Teen Spirit', 'artist': 'John Lennon', 'genre': 'Classical', 'duration_seconds': 435, 'release_year': 1985, 'sentiment': 0.66}
+2025-02-24 14:06:55.606 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Smells Like Teen Spirit', 'artist': 'John Lennon', 'genre': 'Classical', 'duration_seconds': 435, 'release_year': 1985, 'sentiment': 0.66}
+2025-02-24 14:07:00.608 | INFO     | __main__:main:148 - {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Hip-Hop', 'duration_seconds': 276, 'release_year': 2019, 'sentiment': 0.48}
+2025-02-24 14:07:00.608 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Hip-Hop', 'duration_seconds': 276, 'release_year': 2019, 'sentiment': 0.48}
+2025-02-24 14:07:00.609 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Hip-Hop', 'duration_seconds': 276, 'release_year': 2019, 'sentiment': 0.48}
+2025-02-24 14:07:02.678 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-24 14:07:02.679 | INFO     | __main__:main:313 - Starting Consumer to run continuously.
+2025-02-24 14:07:02.679 | INFO     | __main__:main:314 - Moved .env variables into a utils config module.
+2025-02-24 14:07:02.679 | INFO     | __main__:main:316 - STEP 1. Read environment variables using new config functions.
+2025-02-24 14:07:02.679 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-24 14:07:02.679 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-24 14:07:02.679 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-24 14:07:02.679 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-24 14:07:02.679 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\clayt\Documents\buzzline-06-seabaugh\data
+2025-02-24 14:07:02.680 | INFO     | utils.utils_config:get_sqlite_path:96 - SQLITE_PATH: C:\Users\clayt\Documents\buzzline-06-seabaugh\data\buzz.sqlite
+2025-02-24 14:07:02.680 | INFO     | __main__:main:323 - SUCCESS: Read environment variables.
+2025-02-24 14:07:02.680 | INFO     | __main__:main:328 - STEP 2. Delete any prior database file for a fresh start.
+2025-02-24 14:07:02.682 | INFO     | __main__:main:332 - SUCCESS: Deleted database file.
+2025-02-24 14:07:02.682 | INFO     | __main__:main:337 - STEP 3. Initialize a new database with an empty table.
+2025-02-24 14:07:02.696 | INFO     | __main__:main:344 - STEP 4. Begin consuming and storing messages.
+2025-02-24 14:07:02.696 | INFO     | __main__:consume_messages_from_kafka:247 - Called consume_messages_from_kafka() with:
+2025-02-24 14:07:02.696 | INFO     | __main__:consume_messages_from_kafka:248 -    topic='buzzline'
+2025-02-24 14:07:02.697 | INFO     | __main__:consume_messages_from_kafka:249 -    kafka_url='Localhost:9092'
+2025-02-24 14:07:02.697 | INFO     | __main__:consume_messages_from_kafka:250 -    group='buzz_group'
+2025-02-24 14:07:02.697 | INFO     | __main__:consume_messages_from_kafka:251 -    sql_path=WindowsPath('C:/Users/clayt/Documents/buzzline-06-seabaugh/data/buzz.sqlite')
+2025-02-24 14:07:02.697 | INFO     | __main__:consume_messages_from_kafka:252 -    interval_secs=5
+2025-02-24 14:07:02.697 | INFO     | __main__:consume_messages_from_kafka:254 - Step 1. Verify Kafka Services.
+2025-02-24 14:07:02.698 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-24 14:07:02.701 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-24 14:07:02.701 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-24 14:07:03.022 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': '_bEqbanCQc--nuPLzahkuQ', 'controller_id': 1001}
+2025-02-24 14:07:03.022 | INFO     | __main__:consume_messages_from_kafka:261 - Step 2. Create a Kafka consumer.
+2025-02-24 14:07:03.023 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-24 14:07:03.023 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline' and group ID='buzz_group'.
+2025-02-24 14:07:03.129 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-24 14:07:03.130 | INFO     | __main__:consume_messages_from_kafka:272 - Step 3. Verify topic exists.
+2025-02-24 14:07:03.130 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-24 14:07:03.459 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline' already exists. 
+2025-02-24 14:07:03.461 | INFO     | __main__:consume_messages_from_kafka:276 - Kafka topic 'buzzline' is ready.
+2025-02-24 14:07:03.461 | INFO     | __main__:consume_messages_from_kafka:283 - Step 4. Process messages.
+2025-02-24 14:07:04.755 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-24 14:07:04.756 | INFO     | __main__:process_message:51 -    message={'title': 'Hotel California', 'artist': 'John Lennon', 'genre': 'Jazz', 'duration_seconds': 263, 'release_year': 1984, 'sentiment': 0.22}
+2025-02-24 14:07:04.756 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Hotel California', 'artist': 'John Lennon', 'genre': 'Jazz', 'duration_seconds': 263, 'release_year': 1984, 'sentiment': 0.22}
+2025-02-24 14:07:04.767 | ERROR    | __main__:consume_messages_from_kafka:298 - ERROR: Could not consume messages from Kafka: 'seaborn' is not a valid package style, path of style file, URL of style file, or library style name (library styles are listed in `style.available`)
+2025-02-24 14:07:04.767 | ERROR    | __main__:main:352 - Unexpected error: 'seaborn' is not a valid package style, path of style file, URL of style file, or library style name (library styles are listed in `style.available`)
+2025-02-24 14:07:04.768 | INFO     | __main__:main:354 - Consumer shutting down.
+2025-02-24 14:07:05.610 | INFO     | __main__:main:148 - {'title': 'Bohemian Rhapsody', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 266, 'release_year': 1992, 'sentiment': 0.24}
+2025-02-24 14:07:05.611 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Bohemian Rhapsody', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 266, 'release_year': 1992, 'sentiment': 0.24}
+2025-02-24 14:07:05.613 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Bohemian Rhapsody', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 266, 'release_year': 1992, 'sentiment': 0.24}
+2025-02-24 14:07:10.614 | INFO     | __main__:main:148 - {'title': 'Smells Like Teen Spirit', 'artist': 'Queen', 'genre': 'Pop', 'duration_seconds': 366, 'release_year': 1972, 'sentiment': 0.91}
+2025-02-24 14:07:10.614 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Smells Like Teen Spirit', 'artist': 'Queen', 'genre': 'Pop', 'duration_seconds': 366, 'release_year': 1972, 'sentiment': 0.91}
+2025-02-24 14:07:10.614 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Smells Like Teen Spirit', 'artist': 'Queen', 'genre': 'Pop', 'duration_seconds': 366, 'release_year': 1972, 'sentiment': 0.91}
+2025-02-24 14:07:10.617 | WARNING  | __main__:main:162 - WARNING: Producer interrupted by user.
+2025-02-24 14:07:10.617 | INFO     | __main__:main:168 - Kafka producer closed.
+2025-02-24 14:07:10.617 | INFO     | __main__:main:169 - TRY/FINALLY: Producer shutting down.
