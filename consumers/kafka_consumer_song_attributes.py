@@ -169,37 +169,78 @@ def generate_release_year_graph(sql_path: pathlib.Path):
     logger.info("Generated release year graph: release_years_graph.png")
 
 #####################################
-# Generate Line Graph of sentiment over time
+# Generate Line Graph of Sentiment Over Time
 #####################################
 
 def generate_sentiment_over_time_graph(sql_path: pathlib.Path):
+    try:
+        conn = sqlite3.connect(sql_path)
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT release_year, AVG(sentiment) as avg_sentiment
+            FROM songs
+            GROUP BY release_year
+            ORDER BY release_year
+        ''')
+        data = cursor.fetchall()
+        conn.close()
+
+        print("Sentiment Over Time Data:", data)  # Debugging line
+
+        if not data:
+            logger.warning("No data available to generate the sentiment graph.")
+            return
+
+        years = [row[0] for row in data]
+        sentiments = [row[1] for row in data]
+
+        plt.figure(figsize=(10, 6))
+        plt.plot(years, sentiments, marker="o", linestyle="-", color="r")
+        plt.title("Average Song Sentiment Over Time")
+        plt.xlabel("Release Year")
+        plt.ylabel("Average Sentiment")
+        plt.grid(True)
+        plt.savefig("sentiment_over_time_graph.png")
+        plt.close()
+        logger.info("Generated sentiment over time graph: sentiment_over_time_graph.png")
+    except Exception as e:
+        logger.error(f"Error generating sentiment over time graph: {e}")
+
+
+#####################################
+# Generate Genre Distribution Graph
+#####################################
+
+def generate_genre_distribution_graph(sql_path: pathlib.Path):
     conn = sqlite3.connect(sql_path)
     cursor = conn.cursor()
     cursor.execute('''
-        SELECT release_year, AVG(sentiment) as avg_sentiment
+        SELECT genre, COUNT(*) as count
         FROM songs
-        GROUP BY release_year
-        ORDER BY release_year
+        GROUP BY genre
     ''')
     data = cursor.fetchall()
     conn.close()
 
+    print("Genre Distribution Data:", data)  # Debugging line
+
     if not data:
-        logger.warning("No data available to generate the sentiment graph.")
+        logger.warning("No data available to generate the genre distribution graph.")
         return
 
-    years = [row[0] for row in data]
-    sentiments = [row[1] for row in data]
+    genres = [row[0] for row in data]
+    counts = [row[1] for row in data]
 
     plt.figure(figsize=(10, 6))
-    plt.plot(years, sentiments, marker="o", linestyle="-", color="r")
-    plt.title("Average Song Sentiment Over Time")
-    plt.xlabel("Release Year")
-    plt.ylabel("Average Sentiment")
-    plt.grid(True)
-    plt.savefig("sentiment_over_time_graph.png")
+    plt.bar(genres, counts, color="skyblue")
+    plt.title("Song Genre Distribution")
+    plt.xlabel("Genre")
+    plt.ylabel("Number of Songs")
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.savefig("genre_distribution_graph.png")
     plt.close()
-    logger.info("Generated sentiment over time graph: sentiment_over_time_graph.png")
+    logger.info("Generated genre distribution graph: genre_distribution_graph.png")
 
 #####################################
 # Consume Messages from Kafka Topic
@@ -273,6 +314,19 @@ def consume_messages_from_kafka(
                 insert_message(processed_message, sql_path)
                 # Generate graph after inserting new data
                 generate_release_year_graph(sql_path)
+    except Exception as e:
+        logger.error(f"ERROR: Could not consume messages from Kafka: {e}")
+        raise
+    
+    try:
+        for message in consumer:
+            processed_message = process_message(message.value)
+            if processed_message:
+                insert_message(processed_message, sql_path)
+                # Generate graphs after inserting new data
+                generate_release_year_graph(sql_path)
+                generate_sentiment_over_time_graph(sql_path)
+                generate_genre_distribution_graph(sql_path)
     except Exception as e:
         logger.error(f"ERROR: Could not consume messages from Kafka: {e}")
         raise
