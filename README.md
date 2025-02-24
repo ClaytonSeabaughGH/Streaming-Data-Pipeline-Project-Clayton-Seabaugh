@@ -1,63 +1,63 @@
-# Kafka Consumer: Seabaugh Edition (buzzline-05-seabaugh)
+# Kafka Producer & Consumer: Seabaugh Edition (buzzline-06-seabaugh)
 
-Welcome to **Kafka Consumer: Seabaugh Edition**, where real-time data processing meets fun and functionality! 🚀
+Welcome to **Kafka Producer & Consumer: Seabaugh Edition**, where real-time data streaming meets powerful analytics! 🚀
 
 ## 📌 Overview
-This Kafka consumer is designed to consume JSON messages from a live data stream, process them, and insert the results into an SQLite database. But wait—there’s more! It also tracks sentiment and categorizes messages based on keyword mentions. Think of it as your personal data butler, sorting and analyzing messages with precision and a touch of flair. 🎩✨
+This system consists of both a **Kafka Producer** and a **Kafka Consumer** to handle real-time streaming of JSON messages related to song attributes. The producer sends song data to a Kafka topic, while the consumer processes the messages, performs sentiment analysis, and stores them in an SQLite database. It also generates insightful graphs for visualization.
 
 ## 🔥 Features
-- **Live Kafka Consumer**: Fetches messages in real time from a Kafka topic.
-- **Keyword-Based Categorization**: Detects predefined keywords and assigns categories like `tech`, `gaming`, `food`, and more.
-- **Sentiment Analysis**: Determines whether a message has `positive`, `negative`, or `neutral` sentiment.
+### Producer Features
+- **Real-Time Data Streaming**: Sends song-related JSON messages to a Kafka topic.
+- **Dynamic Message Generation**: Simulates song metadata including title, artist, genre, duration, release year, and sentiment.
+- **Customizable Configuration**: Modify parameters such as message frequency and Kafka topic via environment variables.
+
+### Consumer Features
+- **Live Kafka Consumption**: Fetches messages in real-time from a Kafka topic.
+- **Sentiment Analysis**: Analyzes song attributes and assigns a sentiment score.
 - **SQLite Integration**: Stores processed messages for future analysis.
-- **Smart Alerting**: Notifies when a recognized keyword is detected in a message.
-- **Robust Logging**: Tracks every step, ensuring transparency and easy debugging.
+- **Graph Generation**: Creates visual representations of release trends, sentiment over time, and genre distribution.
+- **Logging & Alerts**: Tracks operations and ensures transparent debugging.
 
 ## 🛠️ How It Works
-1. **Message Consumption**: The script connects to Kafka and consumes messages from a specified topic.
-2. **Processing Magic**: Each message is checked for keywords, categorized, and assigned a sentiment score.
-3. **Data Storage**: Processed messages are inserted into an SQLite database for safekeeping.
-4. **Alerts & Logs**: If a keyword is detected, the consumer logs an alert. If something goes wrong, it logs that too!
+1. **Kafka Producer** generates song data and sends it to a Kafka topic.
+2. **Kafka Consumer** retrieves messages from the topic, processes them, and performs analysis.
+3. **Database Storage**: Processed messages are inserted into an SQLite database.
+4. **Graph Generation**: Consumer generates graphs showcasing trends in music data.
 
 ## 🏗️ Setup & Execution
 ### 1️⃣ Install Dependencies
-Make sure you have the necessary Python packages installed. Run:
+Ensure you have all required Python packages installed:
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 2️⃣ Configure Environment Variables
-Set up your `.env` file or use the `utils_config` module to configure:
+Use a `.env` file or `utils_config` module to set up:
 - Kafka topic
 - Kafka broker address
+- Producer message interval
 - Consumer group ID
-- Database file path
-- Message polling interval
+- SQLite database file path
 
-### 3️⃣ Start the Consumer
-Run the script and watch the magic happen:
+### 3️⃣ Start the Kafka Producer
+Run the producer to send song data:
+```bash
+python kafka_producer_seabaugh.py
+```
+
+### 4️⃣ Start the Kafka Consumer
+Run the consumer to process and store messages:
 ```bash
 python kafka_consumer_seabaugh.py
 ```
 
-## 🧠 Fun Fact
-This consumer doesn’t just process messages—it *appreciates* them. If you send a message with `meme`, it knows you’re in the mood for humor. If it sees `Python`, it knows you're a tech enthusiast. Smart, right? 🤓
+## 📊 Data Visualization
+Once messages are processed, the consumer generates graphs:
+- **Song Release Trends**: Line graph of release years over time.
+- **Sentiment Analysis Over Time**: Tracks how song sentiment evolves by release year.
+- **Genre Distribution**: Bar chart showing the frequency of different genres.
 
-## 🎯 Keyword Categories
-| Keyword     | Category       |
-|------------|---------------|
-| meme       | humor         |
-| Python     | tech          |
-| JavaScript | tech          |
-| recipe     | food          |
-| travel     | travel        |
-| movie      | entertainment |
-| game       | gaming        |
-
-## 📊 Sentiment Analysis
-- **Positive** (score > 0.1) → 😃
-- **Negative** (score < -0.1) → 😠
-- **Neutral** (otherwise) → 😐
+Graphs are saved as `combined_graphs.png` in the working directory.
 
 ## 🚀 Future Enhancements
 - **Real-time dashboard for visualization** 📊
@@ -65,5 +65,5 @@ This consumer doesn’t just process messages—it *appreciates* them. If you se
 - **Machine learning-powered sentiment analysis** 🤖
 
 ### 📢 Final Words
-Whether you're analyzing trends or just keeping an eye on what’s buzzing, **Kafka Consumer: Seabaugh Edition** is here to make data processing efficient and fun. Happy consuming! 🎉
+With **Kafka Producer & Consumer: Seabaugh Edition**, you can efficiently stream, process, and analyze music data in real-time. Whether you're tracking trends or diving deep into sentiment analysis, this system has you covered. Happy streaming! 🎶
 
