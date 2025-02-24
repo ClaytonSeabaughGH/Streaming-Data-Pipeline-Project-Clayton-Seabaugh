@@ -1,6 +1,10 @@
-{"title": "Hotel California", "artist": "John Lennon", "genre": "Jazz", "duration_seconds": 263, "release_year": 1984, "sentiment": 0.22}
-{"title": "Imagine", "artist": "Queen", "genre": "Rock", "duration_seconds": 406, "release_year": 1978, "sentiment": 0.24}
-{"title": "Smells Like Teen Spirit", "artist": "John Lennon", "genre": "Classical", "duration_seconds": 435, "release_year": 1985, "sentiment": 0.66}
-{"title": "Stairway to Heaven", "artist": "Led Zeppelin", "genre": "Hip-Hop", "duration_seconds": 276, "release_year": 2019, "sentiment": 0.48}
-{"title": "Bohemian Rhapsody", "artist": "Eagles", "genre": "Rock", "duration_seconds": 266, "release_year": 1992, "sentiment": 0.24}
-{"title": "Smells Like Teen Spirit", "artist": "Queen", "genre": "Pop", "duration_seconds": 366, "release_year": 1972, "sentiment": 0.91}
+{"title": "Smells Like Teen Spirit", "artist": "Eagles", "genre": "Hip-Hop", "duration_seconds": 423, "release_year": 1975, "sentiment": 0.17}
+{"title": "Imagine", "artist": "Nirvana", "genre": "Rock", "duration_seconds": 387, "release_year": 2020, "sentiment": 0.51}
+{"title": "Bohemian Rhapsody", "artist": "Led Zeppelin", "genre": "Classical", "duration_seconds": 558, "release_year": 1963, "sentiment": 0.81}
+{"title": "Smells Like Teen Spirit", "artist": "Nirvana", "genre": "Classical", "duration_seconds": 364, "release_year": 2013, "sentiment": 0.52}
+{"title": "Smells Like Teen Spirit", "artist": "Queen", "genre": "Rock", "duration_seconds": 342, "release_year": 2011, "sentiment": 0.35}
+{"title": "Bohemian Rhapsody", "artist": "Nirvana", "genre": "Pop", "duration_seconds": 255, "release_year": 1972, "sentiment": 0.42}
+{"title": "Bohemian Rhapsody", "artist": "Led Zeppelin", "genre": "Hip-Hop", "duration_seconds": 441, "release_year": 1987, "sentiment": 0.78}
+{"title": "Bohemian Rhapsody", "artist": "Queen", "genre": "Rock", "duration_seconds": 184, "release_year": 1970, "sentiment": 0.12}
+{"title": "Stairway to Heaven", "artist": "Led Zeppelin", "genre": "Hip-Hop", "duration_seconds": 500, "release_year": 1983, "sentiment": 0.92}
+{"title": "Stairway to Heaven", "artist": "Queen", "genre": "Hip-Hop", "duration_seconds": 521, "release_year": 1993, "sentiment": 0.96}
