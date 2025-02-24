@@ -21,6 +21,7 @@ from datetime import datetime
 from kafka import KafkaConsumer
 import matplotlib.pyplot as plt
 import sqlite3
+import seaborn as sns
 
 # import from local modules
 import utils.utils_config as config
