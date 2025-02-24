@@ -168,6 +168,38 @@ def generate_release_year_graph(sql_path: pathlib.Path):
     plt.close()
     logger.info("Generated release year graph: release_years_graph.png")
 
+#####################################
+# Generate Line Graph of sentiment over time
+#####################################
+
+def generate_sentiment_over_time_graph(sql_path: pathlib.Path):
+    conn = sqlite3.connect(sql_path)
+    cursor = conn.cursor()
+    cursor.execute('''
+        SELECT release_year, AVG(sentiment) as avg_sentiment
+        FROM songs
+        GROUP BY release_year
+        ORDER BY release_year
+    ''')
+    data = cursor.fetchall()
+    conn.close()
+
+    if not data:
+        logger.warning("No data available to generate the sentiment graph.")
+        return
+
+    years = [row[0] for row in data]
+    sentiments = [row[1] for row in data]
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(years, sentiments, marker="o", linestyle="-", color="r")
+    plt.title("Average Song Sentiment Over Time")
+    plt.xlabel("Release Year")
+    plt.ylabel("Average Sentiment")
+    plt.grid(True)
+    plt.savefig("sentiment_over_time_graph.png")
+    plt.close()
+    logger.info("Generated sentiment over time graph: sentiment_over_time_graph.png")
 
 #####################################
 # Consume Messages from Kafka Topic
