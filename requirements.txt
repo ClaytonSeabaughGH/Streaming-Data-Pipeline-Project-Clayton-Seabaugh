@@ -79,6 +79,9 @@
 # Graph generation in consumer
 matplotlib
 
+# Graph design in consumer
+seaborn
+
 # Up-to-date package management tools
 pip
 setuptools

@@ -184,6 +184,10 @@ def generate_combined_graphs(sql_path: pathlib.Path):
     genres = [row[0] for row in genre_data]
     genre_counts = [row[1] for row in genre_data]
 
+    # Set a modern style
+    sns.set_style("whitegrid")
+    plt.style.use("seaborn")
+
     # Create subplots (1 row, 3 columns)
     fig, axes = plt.subplots(1, 3, figsize=(18, 6))
 
