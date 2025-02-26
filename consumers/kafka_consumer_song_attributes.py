@@ -200,6 +200,8 @@ def generate_combined_graphs(sql_path: pathlib.Path):
 
     # Sentiment Graph
     axes[1].plot(years_sentiment, sentiments, marker="o", linestyle="-", color="r")
+    axes[1].fill_between(years_sentiment, sentiments, alpha=0.3, color="r")
+    axes[1].axhline(y=0, linestyle="--", color="black", linewidth=1, alpha=0.7)
     axes[1].set_title("Average Song Sentiment Over Time")
     axes[1].set_xlabel("Release Year")
     axes[1].set_ylabel("Average Sentiment")
