@@ -185,7 +185,7 @@ def generate_combined_graphs(sql_path: pathlib.Path):
     genre_counts = [row[1] for row in genre_data]
 
     # Set style
-    sns.set_style("whitegrid")
+    sns.set_style("darkgrid")
     sns.set_palette("husl")
 
     # Create subplots (1 row, 3 columns)
@@ -213,7 +213,7 @@ def generate_combined_graphs(sql_path: pathlib.Path):
     axes[1].grid(True)
 
     # Genre Distribution
-    axes[2].bar(genres, genre_counts, color=sns.color_palette("coolwarm", len(genres)))
+    axes[2].bar(genres, genre_counts, color=sns.color_palette("deep", len(genres)))
     axes[2].set_title("Song Genre Distribution", fontsize=13, fontweight="bold")
     axes[2].set_xlabel("Genre", fontsize=11, fontstyle="italic")
     axes[2].set_ylabel("Number of Songs", fontsize=11, fontstyle="italic")
