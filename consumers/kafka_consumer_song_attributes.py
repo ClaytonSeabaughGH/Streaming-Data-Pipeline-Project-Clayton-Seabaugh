@@ -185,7 +185,7 @@ def generate_combined_graphs(sql_path: pathlib.Path):
     genre_counts = [row[1] for row in genre_data]
 
     # Set style
-    sns.set_style("darkgrid")
+    sns.set_style("whitegrid")
     sns.set_palette("husl")
 
     # Create subplots (1 row, 3 columns)
@@ -216,7 +216,8 @@ def generate_combined_graphs(sql_path: pathlib.Path):
 
     # Adjust layout and save figure
     plt.tight_layout()
-    plt.subplots_adjust(wspace=0.3) 
+    fig.suptitle("Music Data Insights", fontsize=16, fontweight="bold")
+    plt.subplots_adjust(top=0.88, wspace=0.35) 
 
     # Save figure
     plt.savefig("combined_graphs.png")
