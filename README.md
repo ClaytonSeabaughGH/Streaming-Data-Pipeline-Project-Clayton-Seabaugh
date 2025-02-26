@@ -79,7 +79,7 @@ Run the producer to send song data:
 
 Windows:
 ```sh
-python kafka_producer_seabaugh.py
+py -m kafka_producer_seabaugh.py
 ```
 Mac/Linux:
 ```sh
@@ -92,7 +92,7 @@ Run the consumer to process and store messages:
 
 Windows:
 ```sh
-python kafka_consumer_seabaugh.py
+py -m kafka_consumer_seabaugh.py
 ```
 Mac/Linux:
 ```sh
