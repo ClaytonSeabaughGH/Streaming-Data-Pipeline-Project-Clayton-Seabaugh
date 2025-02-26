@@ -190,7 +190,12 @@ def generate_combined_graphs(sql_path: pathlib.Path):
 
     # Create subplots (1 row, 3 columns)
     fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+    for ax in axes:
+        for spine in ax.spines.values():
+            spine.set_edgecolor("#333333")
+            spine.set_linewidth(1.5)
 
+   
     # Release Year Graph
     axes[0].plot(years_release, counts_release, marker="o", linestyle="-", color="b")
     axes[0].set_title("Song Release Years Over Time", fontsize=13, fontweight="bold")
