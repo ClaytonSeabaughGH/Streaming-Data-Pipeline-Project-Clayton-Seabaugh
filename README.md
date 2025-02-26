@@ -51,7 +51,8 @@ cd ~/kafka
 chmod +x kafka-server-start.sh
 bin/kafka-server-start.sh config/server.properties 
 
-#### **MacOS (Using Homebrew)**
+```
+### **MacOS (Using Homebrew)**
 ```sh
 brew install kafka
 ```
