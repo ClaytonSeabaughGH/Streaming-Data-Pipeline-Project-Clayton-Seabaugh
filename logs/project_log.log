@@ -5212,3 +5212,350 @@
 2025-02-26 01:02:42.311 | INFO     | __main__:main:169 - TRY/FINALLY: Producer shutting down.
 2025-02-26 01:02:43.558 | WARNING  | __main__:main:353 - Consumer interrupted by user.
 2025-02-26 01:02:43.559 | INFO     | __main__:main:357 - Consumer shutting down.
+2025-02-26 01:12:17.776 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-26 01:12:17.776 | INFO     | __main__:main:95 - Starting Producer to run continuously.
+2025-02-26 01:12:17.777 | INFO     | __main__:main:96 - Things can fail or get interrupted, so use a try block.
+2025-02-26 01:12:17.777 | INFO     | __main__:main:97 - Moved .env variables into a utils config module.
+2025-02-26 01:12:17.777 | INFO     | __main__:main:99 - STEP 1. Read required environment variables.
+2025-02-26 01:12:17.777 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-26 01:12:17.777 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-26 01:12:17.777 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:12:17.777 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\clayt\Documents\buzzline-06-seabaugh\data
+2025-02-26 01:12:17.777 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: C:\Users\clayt\Documents\buzzline-06-seabaugh\data\project_live.json
+2025-02-26 01:12:17.777 | INFO     | __main__:main:110 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-26 01:12:17.780 | INFO     | __main__:main:115 - Deleted existing live data file.
+2025-02-26 01:12:17.781 | INFO     | __main__:main:117 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-26 01:12:17.781 | INFO     | __main__:main:123 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-26 01:12:17.781 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-26 01:12:17.785 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-26 01:12:17.786 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:12:18.097 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': '3RjUq46OTqGAzl681-Zayg', 'controller_id': 1001}
+2025-02-26 01:12:18.200 | INFO     | __main__:main:132 - Kafka producer connected to Localhost:9092
+2025-02-26 01:12:18.200 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:12:18.510 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline' exists. Clearing it out...
+2025-02-26 01:12:18.510 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:12:18.821 | ERROR    | utils.utils_producer:clear_kafka_topic:226 - Error managing retention for topic 'buzzline': list indices must be integers or slices, not ConfigResource
+2025-02-26 01:12:18.821 | INFO     | __main__:main:140 - Kafka topic 'buzzline' is ready.
+2025-02-26 01:12:18.821 | INFO     | __main__:main:145 - STEP 5. Generate messages continuously.
+2025-02-26 01:12:18.822 | INFO     | __main__:main:148 - {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Hip-Hop', 'duration_seconds': 279, 'release_year': 1961, 'sentiment': 0.06}
+2025-02-26 01:12:18.822 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Hip-Hop', 'duration_seconds': 279, 'release_year': 1961, 'sentiment': 0.06}
+2025-02-26 01:12:18.823 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Hip-Hop', 'duration_seconds': 279, 'release_year': 1961, 'sentiment': 0.06}
+2025-02-26 01:12:23.824 | INFO     | __main__:main:148 - {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 245, 'release_year': 2012, 'sentiment': 0.92}
+2025-02-26 01:12:23.824 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 245, 'release_year': 2012, 'sentiment': 0.92}
+2025-02-26 01:12:23.824 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 245, 'release_year': 2012, 'sentiment': 0.92}
+2025-02-26 01:12:27.747 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-26 01:12:27.748 | INFO     | __main__:main:316 - Starting Consumer to run continuously.
+2025-02-26 01:12:27.748 | INFO     | __main__:main:317 - Moved .env variables into a utils config module.
+2025-02-26 01:12:27.748 | INFO     | __main__:main:319 - STEP 1. Read environment variables using new config functions.
+2025-02-26 01:12:27.748 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-26 01:12:27.748 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:12:27.749 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-26 01:12:27.749 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-26 01:12:27.749 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\clayt\Documents\buzzline-06-seabaugh\data
+2025-02-26 01:12:27.749 | INFO     | utils.utils_config:get_sqlite_path:96 - SQLITE_PATH: C:\Users\clayt\Documents\buzzline-06-seabaugh\data\buzz.sqlite
+2025-02-26 01:12:27.749 | INFO     | __main__:main:326 - SUCCESS: Read environment variables.
+2025-02-26 01:12:27.749 | INFO     | __main__:main:331 - STEP 2. Delete any prior database file for a fresh start.
+2025-02-26 01:12:27.753 | INFO     | __main__:main:335 - SUCCESS: Deleted database file.
+2025-02-26 01:12:27.753 | INFO     | __main__:main:340 - STEP 3. Initialize a new database with an empty table.
+2025-02-26 01:12:27.767 | INFO     | __main__:main:347 - STEP 4. Begin consuming and storing messages.
+2025-02-26 01:12:27.767 | INFO     | __main__:consume_messages_from_kafka:250 - Called consume_messages_from_kafka() with:
+2025-02-26 01:12:27.768 | INFO     | __main__:consume_messages_from_kafka:251 -    topic='buzzline'
+2025-02-26 01:12:27.768 | INFO     | __main__:consume_messages_from_kafka:252 -    kafka_url='Localhost:9092'
+2025-02-26 01:12:27.768 | INFO     | __main__:consume_messages_from_kafka:253 -    group='buzz_group'
+2025-02-26 01:12:27.768 | INFO     | __main__:consume_messages_from_kafka:254 -    sql_path=WindowsPath('C:/Users/clayt/Documents/buzzline-06-seabaugh/data/buzz.sqlite')
+2025-02-26 01:12:27.768 | INFO     | __main__:consume_messages_from_kafka:255 -    interval_secs=5
+2025-02-26 01:12:27.768 | INFO     | __main__:consume_messages_from_kafka:257 - Step 1. Verify Kafka Services.
+2025-02-26 01:12:27.768 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-26 01:12:27.771 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-26 01:12:27.772 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:12:28.083 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': '3RjUq46OTqGAzl681-Zayg', 'controller_id': 1001}
+2025-02-26 01:12:28.083 | INFO     | __main__:consume_messages_from_kafka:264 - Step 2. Create a Kafka consumer.
+2025-02-26 01:12:28.084 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:12:28.084 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline' and group ID='buzz_group'.
+2025-02-26 01:12:28.188 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-26 01:12:28.189 | INFO     | __main__:consume_messages_from_kafka:275 - Step 3. Verify topic exists.
+2025-02-26 01:12:28.189 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:12:28.500 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline' already exists. 
+2025-02-26 01:12:28.500 | INFO     | __main__:consume_messages_from_kafka:279 - Kafka topic 'buzzline' is ready.
+2025-02-26 01:12:28.500 | INFO     | __main__:consume_messages_from_kafka:286 - Step 4. Process messages.
+2025-02-26 01:12:28.809 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:12:28.809 | INFO     | __main__:process_message:51 -    message={'title': 'Imagine', 'artist': 'Led Zeppelin', 'genre': 'Jazz', 'duration_seconds': 465, 'release_year': 2019, 'sentiment': 0.91}
+2025-02-26 01:12:28.810 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Imagine', 'artist': 'Led Zeppelin', 'genre': 'Jazz', 'duration_seconds': 465, 'release_year': 2019, 'sentiment': 0.91}
+2025-02-26 01:12:28.824 | INFO     | __main__:main:148 - {'title': 'Hotel California', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 508, 'release_year': 2010, 'sentiment': 0.3}
+2025-02-26 01:12:28.824 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Hotel California', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 508, 'release_year': 2010, 'sentiment': 0.3}
+2025-02-26 01:12:28.824 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Hotel California', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 508, 'release_year': 2010, 'sentiment': 0.3}
+2025-02-26 01:12:29.064 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:12:29.064 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:12:29.064 | INFO     | __main__:process_message:51 -    message={'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Hip-Hop', 'duration_seconds': 279, 'release_year': 1961, 'sentiment': 0.06}
+2025-02-26 01:12:29.065 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Hip-Hop', 'duration_seconds': 279, 'release_year': 1961, 'sentiment': 0.06}
+2025-02-26 01:12:29.242 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:12:29.242 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:12:29.242 | INFO     | __main__:process_message:51 -    message={'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 245, 'release_year': 2012, 'sentiment': 0.92}
+2025-02-26 01:12:29.242 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 245, 'release_year': 2012, 'sentiment': 0.92}
+2025-02-26 01:12:29.420 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:12:29.422 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:12:29.422 | INFO     | __main__:process_message:51 -    message={'title': 'Hotel California', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 508, 'release_year': 2010, 'sentiment': 0.3}
+2025-02-26 01:12:29.422 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Hotel California', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 508, 'release_year': 2010, 'sentiment': 0.3}
+2025-02-26 01:12:29.600 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:12:33.825 | INFO     | __main__:main:148 - {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 235, 'release_year': 2002, 'sentiment': 0.49}
+2025-02-26 01:12:33.826 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 235, 'release_year': 2002, 'sentiment': 0.49}
+2025-02-26 01:12:33.827 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 235, 'release_year': 2002, 'sentiment': 0.49}
+2025-02-26 01:12:33.829 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:12:33.829 | INFO     | __main__:process_message:51 -    message={'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 235, 'release_year': 2002, 'sentiment': 0.49}
+2025-02-26 01:12:33.830 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 235, 'release_year': 2002, 'sentiment': 0.49}
+2025-02-26 01:12:34.021 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:12:38.828 | INFO     | __main__:main:148 - {'title': 'Stairway to Heaven', 'artist': 'John Lennon', 'genre': 'Rock', 'duration_seconds': 487, 'release_year': 2005, 'sentiment': 0.91}
+2025-02-26 01:12:38.829 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Stairway to Heaven', 'artist': 'John Lennon', 'genre': 'Rock', 'duration_seconds': 487, 'release_year': 2005, 'sentiment': 0.91}
+2025-02-26 01:12:38.830 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Stairway to Heaven', 'artist': 'John Lennon', 'genre': 'Rock', 'duration_seconds': 487, 'release_year': 2005, 'sentiment': 0.91}
+2025-02-26 01:12:38.832 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:12:38.832 | INFO     | __main__:process_message:51 -    message={'title': 'Stairway to Heaven', 'artist': 'John Lennon', 'genre': 'Rock', 'duration_seconds': 487, 'release_year': 2005, 'sentiment': 0.91}
+2025-02-26 01:12:38.832 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Stairway to Heaven', 'artist': 'John Lennon', 'genre': 'Rock', 'duration_seconds': 487, 'release_year': 2005, 'sentiment': 0.91}
+2025-02-26 01:12:39.019 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:12:43.830 | INFO     | __main__:main:148 - {'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 376, 'release_year': 2002, 'sentiment': 0.13}
+2025-02-26 01:12:43.832 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 376, 'release_year': 2002, 'sentiment': 0.13}
+2025-02-26 01:12:43.833 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 376, 'release_year': 2002, 'sentiment': 0.13}
+2025-02-26 01:12:43.835 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:12:43.835 | INFO     | __main__:process_message:51 -    message={'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 376, 'release_year': 2002, 'sentiment': 0.13}
+2025-02-26 01:12:43.835 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 376, 'release_year': 2002, 'sentiment': 0.13}
+2025-02-26 01:12:44.024 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:12:47.560 | WARNING  | __main__:main:162 - WARNING: Producer interrupted by user.
+2025-02-26 01:12:47.561 | INFO     | __main__:main:168 - Kafka producer closed.
+2025-02-26 01:12:47.561 | INFO     | __main__:main:169 - TRY/FINALLY: Producer shutting down.
+2025-02-26 01:12:48.640 | WARNING  | __main__:main:353 - Consumer interrupted by user.
+2025-02-26 01:12:48.640 | INFO     | __main__:main:357 - Consumer shutting down.
+2025-02-26 01:13:16.014 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-26 01:13:16.015 | INFO     | __main__:main:95 - Starting Producer to run continuously.
+2025-02-26 01:13:16.015 | INFO     | __main__:main:96 - Things can fail or get interrupted, so use a try block.
+2025-02-26 01:13:16.015 | INFO     | __main__:main:97 - Moved .env variables into a utils config module.
+2025-02-26 01:13:16.015 | INFO     | __main__:main:99 - STEP 1. Read required environment variables.
+2025-02-26 01:13:16.015 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-26 01:13:16.015 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-26 01:13:16.015 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:13:16.015 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\clayt\Documents\buzzline-06-seabaugh\data
+2025-02-26 01:13:16.016 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: C:\Users\clayt\Documents\buzzline-06-seabaugh\data\project_live.json
+2025-02-26 01:13:16.016 | INFO     | __main__:main:110 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-26 01:13:16.019 | INFO     | __main__:main:115 - Deleted existing live data file.
+2025-02-26 01:13:16.019 | INFO     | __main__:main:117 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-26 01:13:16.019 | INFO     | __main__:main:123 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-26 01:13:16.019 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-26 01:13:16.023 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-26 01:13:16.023 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:13:16.334 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': '3RjUq46OTqGAzl681-Zayg', 'controller_id': 1001}
+2025-02-26 01:13:16.437 | INFO     | __main__:main:132 - Kafka producer connected to Localhost:9092
+2025-02-26 01:13:16.438 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:13:16.746 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline' exists. Clearing it out...
+2025-02-26 01:13:16.746 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:13:17.058 | ERROR    | utils.utils_producer:clear_kafka_topic:226 - Error managing retention for topic 'buzzline': list indices must be integers or slices, not ConfigResource
+2025-02-26 01:13:17.058 | INFO     | __main__:main:140 - Kafka topic 'buzzline' is ready.
+2025-02-26 01:13:17.059 | INFO     | __main__:main:145 - STEP 5. Generate messages continuously.
+2025-02-26 01:13:17.059 | INFO     | __main__:main:148 - {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 409, 'release_year': 1980, 'sentiment': 0.17}
+2025-02-26 01:13:17.059 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 409, 'release_year': 1980, 'sentiment': 0.17}
+2025-02-26 01:13:17.060 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 409, 'release_year': 1980, 'sentiment': 0.17}
+2025-02-26 01:13:22.060 | INFO     | __main__:main:148 - {'title': 'Stairway to Heaven', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 404, 'release_year': 2007, 'sentiment': 0.92}
+2025-02-26 01:13:22.061 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Stairway to Heaven', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 404, 'release_year': 2007, 'sentiment': 0.92}
+2025-02-26 01:13:22.061 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Stairway to Heaven', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 404, 'release_year': 2007, 'sentiment': 0.92}
+2025-02-26 01:13:24.591 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-26 01:13:24.593 | INFO     | __main__:main:316 - Starting Consumer to run continuously.
+2025-02-26 01:13:24.593 | INFO     | __main__:main:317 - Moved .env variables into a utils config module.
+2025-02-26 01:13:24.593 | INFO     | __main__:main:319 - STEP 1. Read environment variables using new config functions.
+2025-02-26 01:13:24.593 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-26 01:13:24.593 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:13:24.594 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-26 01:13:24.594 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-26 01:13:24.594 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\clayt\Documents\buzzline-06-seabaugh\data
+2025-02-26 01:13:24.594 | INFO     | utils.utils_config:get_sqlite_path:96 - SQLITE_PATH: C:\Users\clayt\Documents\buzzline-06-seabaugh\data\buzz.sqlite
+2025-02-26 01:13:24.594 | INFO     | __main__:main:326 - SUCCESS: Read environment variables.
+2025-02-26 01:13:24.595 | INFO     | __main__:main:331 - STEP 2. Delete any prior database file for a fresh start.
+2025-02-26 01:13:24.598 | INFO     | __main__:main:335 - SUCCESS: Deleted database file.
+2025-02-26 01:13:24.598 | INFO     | __main__:main:340 - STEP 3. Initialize a new database with an empty table.
+2025-02-26 01:13:24.614 | INFO     | __main__:main:347 - STEP 4. Begin consuming and storing messages.
+2025-02-26 01:13:24.614 | INFO     | __main__:consume_messages_from_kafka:250 - Called consume_messages_from_kafka() with:
+2025-02-26 01:13:24.614 | INFO     | __main__:consume_messages_from_kafka:251 -    topic='buzzline'
+2025-02-26 01:13:24.614 | INFO     | __main__:consume_messages_from_kafka:252 -    kafka_url='Localhost:9092'
+2025-02-26 01:13:24.614 | INFO     | __main__:consume_messages_from_kafka:253 -    group='buzz_group'
+2025-02-26 01:13:24.614 | INFO     | __main__:consume_messages_from_kafka:254 -    sql_path=WindowsPath('C:/Users/clayt/Documents/buzzline-06-seabaugh/data/buzz.sqlite')
+2025-02-26 01:13:24.615 | INFO     | __main__:consume_messages_from_kafka:255 -    interval_secs=5
+2025-02-26 01:13:24.615 | INFO     | __main__:consume_messages_from_kafka:257 - Step 1. Verify Kafka Services.
+2025-02-26 01:13:24.615 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-26 01:13:24.619 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-26 01:13:24.620 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:13:24.932 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': '3RjUq46OTqGAzl681-Zayg', 'controller_id': 1001}
+2025-02-26 01:13:24.932 | INFO     | __main__:consume_messages_from_kafka:264 - Step 2. Create a Kafka consumer.
+2025-02-26 01:13:24.932 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:13:24.933 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline' and group ID='buzz_group'.
+2025-02-26 01:13:25.035 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-26 01:13:25.036 | INFO     | __main__:consume_messages_from_kafka:275 - Step 3. Verify topic exists.
+2025-02-26 01:13:25.036 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:13:25.347 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline' already exists. 
+2025-02-26 01:13:25.348 | INFO     | __main__:consume_messages_from_kafka:279 - Kafka topic 'buzzline' is ready.
+2025-02-26 01:13:25.348 | INFO     | __main__:consume_messages_from_kafka:286 - Step 4. Process messages.
+2025-02-26 01:13:25.658 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:13:25.658 | INFO     | __main__:process_message:51 -    message={'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 376, 'release_year': 2002, 'sentiment': 0.13}
+2025-02-26 01:13:25.658 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Pop', 'duration_seconds': 376, 'release_year': 2002, 'sentiment': 0.13}
+2025-02-26 01:13:25.930 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:13:25.930 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:13:25.930 | INFO     | __main__:process_message:51 -    message={'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 409, 'release_year': 1980, 'sentiment': 0.17}
+2025-02-26 01:13:25.930 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 409, 'release_year': 1980, 'sentiment': 0.17}
+2025-02-26 01:13:26.109 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:13:26.109 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:13:26.109 | INFO     | __main__:process_message:51 -    message={'title': 'Stairway to Heaven', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 404, 'release_year': 2007, 'sentiment': 0.92}
+2025-02-26 01:13:26.109 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Stairway to Heaven', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 404, 'release_year': 2007, 'sentiment': 0.92}
+2025-02-26 01:13:26.297 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:13:27.061 | INFO     | __main__:main:148 - {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 326, 'release_year': 1961, 'sentiment': 0.74}
+2025-02-26 01:13:27.061 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 326, 'release_year': 1961, 'sentiment': 0.74}
+2025-02-26 01:13:27.061 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 326, 'release_year': 1961, 'sentiment': 0.74}
+2025-02-26 01:13:27.063 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:13:27.063 | INFO     | __main__:process_message:51 -    message={'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 326, 'release_year': 1961, 'sentiment': 0.74}
+2025-02-26 01:13:27.063 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Stairway to Heaven', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 326, 'release_year': 1961, 'sentiment': 0.74}
+2025-02-26 01:13:27.243 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:13:32.062 | INFO     | __main__:main:148 - {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Classical', 'duration_seconds': 351, 'release_year': 1980, 'sentiment': 0.12}
+2025-02-26 01:13:32.062 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Classical', 'duration_seconds': 351, 'release_year': 1980, 'sentiment': 0.12}
+2025-02-26 01:13:32.064 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Classical', 'duration_seconds': 351, 'release_year': 1980, 'sentiment': 0.12}
+2025-02-26 01:13:32.066 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:13:32.066 | INFO     | __main__:process_message:51 -    message={'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Classical', 'duration_seconds': 351, 'release_year': 1980, 'sentiment': 0.12}
+2025-02-26 01:13:32.066 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Classical', 'duration_seconds': 351, 'release_year': 1980, 'sentiment': 0.12}
+2025-02-26 01:13:32.242 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:13:37.065 | INFO     | __main__:main:148 - {'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 377, 'release_year': 2009, 'sentiment': 0.4}
+2025-02-26 01:13:37.065 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 377, 'release_year': 2009, 'sentiment': 0.4}
+2025-02-26 01:13:37.067 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 377, 'release_year': 2009, 'sentiment': 0.4}
+2025-02-26 01:13:37.068 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:13:37.069 | INFO     | __main__:process_message:51 -    message={'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 377, 'release_year': 2009, 'sentiment': 0.4}
+2025-02-26 01:13:37.069 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 377, 'release_year': 2009, 'sentiment': 0.4}
+2025-02-26 01:13:37.257 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:13:38.965 | WARNING  | __main__:main:162 - WARNING: Producer interrupted by user.
+2025-02-26 01:13:38.966 | INFO     | __main__:main:168 - Kafka producer closed.
+2025-02-26 01:13:38.966 | INFO     | __main__:main:169 - TRY/FINALLY: Producer shutting down.
+2025-02-26 01:13:40.181 | WARNING  | __main__:main:353 - Consumer interrupted by user.
+2025-02-26 01:13:40.181 | INFO     | __main__:main:357 - Consumer shutting down.
+2025-02-26 01:14:14.027 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-26 01:14:14.027 | INFO     | __main__:main:95 - Starting Producer to run continuously.
+2025-02-26 01:14:14.028 | INFO     | __main__:main:96 - Things can fail or get interrupted, so use a try block.
+2025-02-26 01:14:14.028 | INFO     | __main__:main:97 - Moved .env variables into a utils config module.
+2025-02-26 01:14:14.028 | INFO     | __main__:main:99 - STEP 1. Read required environment variables.
+2025-02-26 01:14:14.028 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-26 01:14:14.028 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-26 01:14:14.028 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:14:14.028 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\clayt\Documents\buzzline-06-seabaugh\data
+2025-02-26 01:14:14.028 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: C:\Users\clayt\Documents\buzzline-06-seabaugh\data\project_live.json
+2025-02-26 01:14:14.028 | INFO     | __main__:main:110 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-26 01:14:14.032 | INFO     | __main__:main:115 - Deleted existing live data file.
+2025-02-26 01:14:14.032 | INFO     | __main__:main:117 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-26 01:14:14.032 | INFO     | __main__:main:123 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-26 01:14:14.032 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-26 01:14:14.037 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-26 01:14:14.037 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:14:14.345 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': '3RjUq46OTqGAzl681-Zayg', 'controller_id': 1001}
+2025-02-26 01:14:14.449 | INFO     | __main__:main:132 - Kafka producer connected to Localhost:9092
+2025-02-26 01:14:14.449 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:14:14.759 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline' exists. Clearing it out...
+2025-02-26 01:14:14.759 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:14:15.070 | ERROR    | utils.utils_producer:clear_kafka_topic:226 - Error managing retention for topic 'buzzline': list indices must be integers or slices, not ConfigResource
+2025-02-26 01:14:15.071 | INFO     | __main__:main:140 - Kafka topic 'buzzline' is ready.
+2025-02-26 01:14:15.071 | INFO     | __main__:main:145 - STEP 5. Generate messages continuously.
+2025-02-26 01:14:15.071 | INFO     | __main__:main:148 - {'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Classical', 'duration_seconds': 591, 'release_year': 1998, 'sentiment': 0.99}
+2025-02-26 01:14:15.072 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Classical', 'duration_seconds': 591, 'release_year': 1998, 'sentiment': 0.99}
+2025-02-26 01:14:15.072 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Classical', 'duration_seconds': 591, 'release_year': 1998, 'sentiment': 0.99}
+2025-02-26 01:14:20.073 | INFO     | __main__:main:148 - {'title': 'Imagine', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 514, 'release_year': 1991, 'sentiment': 0.53}
+2025-02-26 01:14:20.073 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Imagine', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 514, 'release_year': 1991, 'sentiment': 0.53}
+2025-02-26 01:14:20.073 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Imagine', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 514, 'release_year': 1991, 'sentiment': 0.53}
+2025-02-26 01:14:22.091 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-26 01:14:22.093 | INFO     | __main__:main:316 - Starting Consumer to run continuously.
+2025-02-26 01:14:22.093 | INFO     | __main__:main:317 - Moved .env variables into a utils config module.
+2025-02-26 01:14:22.093 | INFO     | __main__:main:319 - STEP 1. Read environment variables using new config functions.
+2025-02-26 01:14:22.093 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-26 01:14:22.093 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:14:22.093 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-26 01:14:22.093 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-26 01:14:22.093 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\clayt\Documents\buzzline-06-seabaugh\data
+2025-02-26 01:14:22.093 | INFO     | utils.utils_config:get_sqlite_path:96 - SQLITE_PATH: C:\Users\clayt\Documents\buzzline-06-seabaugh\data\buzz.sqlite
+2025-02-26 01:14:22.093 | INFO     | __main__:main:326 - SUCCESS: Read environment variables.
+2025-02-26 01:14:22.094 | INFO     | __main__:main:331 - STEP 2. Delete any prior database file for a fresh start.
+2025-02-26 01:14:22.097 | INFO     | __main__:main:335 - SUCCESS: Deleted database file.
+2025-02-26 01:14:22.097 | INFO     | __main__:main:340 - STEP 3. Initialize a new database with an empty table.
+2025-02-26 01:14:22.111 | INFO     | __main__:main:347 - STEP 4. Begin consuming and storing messages.
+2025-02-26 01:14:22.111 | INFO     | __main__:consume_messages_from_kafka:250 - Called consume_messages_from_kafka() with:
+2025-02-26 01:14:22.112 | INFO     | __main__:consume_messages_from_kafka:251 -    topic='buzzline'
+2025-02-26 01:14:22.112 | INFO     | __main__:consume_messages_from_kafka:252 -    kafka_url='Localhost:9092'
+2025-02-26 01:14:22.112 | INFO     | __main__:consume_messages_from_kafka:253 -    group='buzz_group'
+2025-02-26 01:14:22.112 | INFO     | __main__:consume_messages_from_kafka:254 -    sql_path=WindowsPath('C:/Users/clayt/Documents/buzzline-06-seabaugh/data/buzz.sqlite')
+2025-02-26 01:14:22.112 | INFO     | __main__:consume_messages_from_kafka:255 -    interval_secs=5
+2025-02-26 01:14:22.112 | INFO     | __main__:consume_messages_from_kafka:257 - Step 1. Verify Kafka Services.
+2025-02-26 01:14:22.112 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-26 01:14:22.116 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-26 01:14:22.116 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:14:22.427 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': '3RjUq46OTqGAzl681-Zayg', 'controller_id': 1001}
+2025-02-26 01:14:22.427 | INFO     | __main__:consume_messages_from_kafka:264 - Step 2. Create a Kafka consumer.
+2025-02-26 01:14:22.427 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:14:22.427 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline' and group ID='buzz_group'.
+2025-02-26 01:14:22.531 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-26 01:14:22.531 | INFO     | __main__:consume_messages_from_kafka:275 - Step 3. Verify topic exists.
+2025-02-26 01:14:22.531 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-26 01:14:22.839 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline' already exists. 
+2025-02-26 01:14:22.839 | INFO     | __main__:consume_messages_from_kafka:279 - Kafka topic 'buzzline' is ready.
+2025-02-26 01:14:22.839 | INFO     | __main__:consume_messages_from_kafka:286 - Step 4. Process messages.
+2025-02-26 01:14:23.147 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:23.147 | INFO     | __main__:process_message:51 -    message={'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 377, 'release_year': 2009, 'sentiment': 0.4}
+2025-02-26 01:14:23.148 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Rock', 'duration_seconds': 377, 'release_year': 2009, 'sentiment': 0.4}
+2025-02-26 01:14:23.408 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:23.408 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:23.408 | INFO     | __main__:process_message:51 -    message={'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Classical', 'duration_seconds': 591, 'release_year': 1998, 'sentiment': 0.99}
+2025-02-26 01:14:23.408 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Smells Like Teen Spirit', 'artist': 'Eagles', 'genre': 'Classical', 'duration_seconds': 591, 'release_year': 1998, 'sentiment': 0.99}
+2025-02-26 01:14:23.585 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:23.586 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:23.586 | INFO     | __main__:process_message:51 -    message={'title': 'Imagine', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 514, 'release_year': 1991, 'sentiment': 0.53}
+2025-02-26 01:14:23.586 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Imagine', 'artist': 'Nirvana', 'genre': 'Rock', 'duration_seconds': 514, 'release_year': 1991, 'sentiment': 0.53}
+2025-02-26 01:14:23.769 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:25.073 | INFO     | __main__:main:148 - {'title': 'Imagine', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 581, 'release_year': 1976, 'sentiment': 0.44}
+2025-02-26 01:14:25.073 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Imagine', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 581, 'release_year': 1976, 'sentiment': 0.44}
+2025-02-26 01:14:25.074 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Imagine', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 581, 'release_year': 1976, 'sentiment': 0.44}
+2025-02-26 01:14:25.075 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:25.076 | INFO     | __main__:process_message:51 -    message={'title': 'Imagine', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 581, 'release_year': 1976, 'sentiment': 0.44}
+2025-02-26 01:14:25.076 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Imagine', 'artist': 'Queen', 'genre': 'Classical', 'duration_seconds': 581, 'release_year': 1976, 'sentiment': 0.44}
+2025-02-26 01:14:25.264 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:30.075 | INFO     | __main__:main:148 - {'title': 'Smells Like Teen Spirit', 'artist': 'Queen', 'genre': 'Rock', 'duration_seconds': 387, 'release_year': 2000, 'sentiment': 0.45}
+2025-02-26 01:14:30.076 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Smells Like Teen Spirit', 'artist': 'Queen', 'genre': 'Rock', 'duration_seconds': 387, 'release_year': 2000, 'sentiment': 0.45}
+2025-02-26 01:14:30.077 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Smells Like Teen Spirit', 'artist': 'Queen', 'genre': 'Rock', 'duration_seconds': 387, 'release_year': 2000, 'sentiment': 0.45}
+2025-02-26 01:14:30.078 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:30.079 | INFO     | __main__:process_message:51 -    message={'title': 'Smells Like Teen Spirit', 'artist': 'Queen', 'genre': 'Rock', 'duration_seconds': 387, 'release_year': 2000, 'sentiment': 0.45}
+2025-02-26 01:14:30.079 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Smells Like Teen Spirit', 'artist': 'Queen', 'genre': 'Rock', 'duration_seconds': 387, 'release_year': 2000, 'sentiment': 0.45}
+2025-02-26 01:14:30.266 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:35.077 | INFO     | __main__:main:148 - {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 183, 'release_year': 1977, 'sentiment': 0.35}
+2025-02-26 01:14:35.077 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 183, 'release_year': 1977, 'sentiment': 0.35}
+2025-02-26 01:14:35.079 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 183, 'release_year': 1977, 'sentiment': 0.35}
+2025-02-26 01:14:35.081 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:35.081 | INFO     | __main__:process_message:51 -    message={'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 183, 'release_year': 1977, 'sentiment': 0.35}
+2025-02-26 01:14:35.081 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 183, 'release_year': 1977, 'sentiment': 0.35}
+2025-02-26 01:14:35.263 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:40.080 | INFO     | __main__:main:148 - {'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Jazz', 'duration_seconds': 309, 'release_year': 2006, 'sentiment': 0.61}
+2025-02-26 01:14:40.080 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Jazz', 'duration_seconds': 309, 'release_year': 2006, 'sentiment': 0.61}
+2025-02-26 01:14:40.082 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Jazz', 'duration_seconds': 309, 'release_year': 2006, 'sentiment': 0.61}
+2025-02-26 01:14:40.084 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:40.084 | INFO     | __main__:process_message:51 -    message={'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Jazz', 'duration_seconds': 309, 'release_year': 2006, 'sentiment': 0.61}
+2025-02-26 01:14:40.085 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Imagine', 'artist': 'Eagles', 'genre': 'Jazz', 'duration_seconds': 309, 'release_year': 2006, 'sentiment': 0.61}
+2025-02-26 01:14:40.270 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:45.082 | INFO     | __main__:main:148 - {'title': 'Imagine', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 423, 'release_year': 2019, 'sentiment': 0.91}
+2025-02-26 01:14:45.082 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Imagine', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 423, 'release_year': 2019, 'sentiment': 0.91}
+2025-02-26 01:14:45.083 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Imagine', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 423, 'release_year': 2019, 'sentiment': 0.91}
+2025-02-26 01:14:45.084 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:45.084 | INFO     | __main__:process_message:51 -    message={'title': 'Imagine', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 423, 'release_year': 2019, 'sentiment': 0.91}
+2025-02-26 01:14:45.085 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Imagine', 'artist': 'Led Zeppelin', 'genre': 'Pop', 'duration_seconds': 423, 'release_year': 2019, 'sentiment': 0.91}
+2025-02-26 01:14:45.281 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:50.083 | INFO     | __main__:main:148 - {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Jazz', 'duration_seconds': 239, 'release_year': 1963, 'sentiment': 0.71}
+2025-02-26 01:14:50.083 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Jazz', 'duration_seconds': 239, 'release_year': 1963, 'sentiment': 0.71}
+2025-02-26 01:14:50.084 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Jazz', 'duration_seconds': 239, 'release_year': 1963, 'sentiment': 0.71}
+2025-02-26 01:14:50.087 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:50.087 | INFO     | __main__:process_message:51 -    message={'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Jazz', 'duration_seconds': 239, 'release_year': 1963, 'sentiment': 0.71}
+2025-02-26 01:14:50.087 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Jazz', 'duration_seconds': 239, 'release_year': 1963, 'sentiment': 0.71}
+2025-02-26 01:14:50.300 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:55.086 | INFO     | __main__:main:148 - {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 526, 'release_year': 2005, 'sentiment': 0.06}
+2025-02-26 01:14:55.086 | INFO     | __main__:main:152 - STEP 4a Wrote message to file: {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 526, 'release_year': 2005, 'sentiment': 0.06}
+2025-02-26 01:14:55.087 | INFO     | __main__:main:157 - STEP 4b Sent message to Kafka topic 'buzzline': {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 526, 'release_year': 2005, 'sentiment': 0.06}
+2025-02-26 01:14:55.089 | INFO     | __main__:process_message:50 - Called process_message() with:
+2025-02-26 01:14:55.089 | INFO     | __main__:process_message:51 -    message={'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 526, 'release_year': 2005, 'sentiment': 0.06}
+2025-02-26 01:14:55.089 | INFO     | __main__:process_message:62 - Processed message: {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Hip-Hop', 'duration_seconds': 526, 'release_year': 2005, 'sentiment': 0.06}
+2025-02-26 01:14:55.279 | INFO     | __main__:generate_combined_graphs:225 - Generated combined graph: combined_graphs.png
+2025-02-26 01:14:57.848 | WARNING  | __main__:main:162 - WARNING: Producer interrupted by user.
+2025-02-26 01:14:57.850 | INFO     | __main__:main:168 - Kafka producer closed.
+2025-02-26 01:14:57.851 | INFO     | __main__:main:169 - TRY/FINALLY: Producer shutting down.
+2025-02-26 01:14:59.002 | WARNING  | __main__:main:353 - Consumer interrupted by user.
+2025-02-26 01:14:59.003 | INFO     | __main__:main:357 - Consumer shutting down.

@@ -193,25 +193,25 @@ def generate_combined_graphs(sql_path: pathlib.Path):
 
     # Release Year Graph
     axes[0].plot(years_release, counts_release, marker="o", linestyle="-", color="b")
-    axes[0].set_title("Song Release Years Over Time")
-    axes[0].set_xlabel("Release Year")
-    axes[0].set_ylabel("Number of Songs")
+    axes[0].set_title("Song Release Years Over Time", fontsize=13, fontweight="bold")
+    axes[0].set_xlabel("Release Year", fontsize=11, fontstyle="italic")
+    axes[0].set_ylabel("Number of Songs", fontsize=11, fontstyle="italic")
     axes[0].grid(True)
 
     # Sentiment Graph
     axes[1].plot(years_sentiment, sentiments, marker="o", linestyle="-", color="r")
     axes[1].fill_between(years_sentiment, sentiments, alpha=0.3, color="r")
     axes[1].axhline(y=0, linestyle="--", color="black", linewidth=1, alpha=0.7)
-    axes[1].set_title("Average Song Sentiment Over Time")
-    axes[1].set_xlabel("Release Year")
-    axes[1].set_ylabel("Average Sentiment")
+    axes[1].set_title("Average Song Sentiment Over Time", fontsize=13, fontweight="bold")
+    axes[1].set_xlabel("Release Year", fontsize=11, fontstyle="italic")
+    axes[1].set_ylabel("Average Sentiment", fontsize=11, fontstyle="italic")
     axes[1].grid(True)
 
     # Genre Distribution
     axes[2].bar(genres, genre_counts, color=sns.color_palette("coolwarm", len(genres)))
-    axes[2].set_title("Song Genre Distribution")
-    axes[2].set_xlabel("Genre")
-    axes[2].set_ylabel("Number of Songs")
+    axes[2].set_title("Song Genre Distribution", fontsize=13, fontweight="bold")
+    axes[2].set_xlabel("Genre", fontsize=11, fontstyle="italic")
+    axes[2].set_ylabel("Number of Songs", fontsize=11, fontstyle="italic")
     axes[2].tick_params(axis="x", rotation=45)
 
     # Adjust layout and save figure
