@@ -208,7 +208,7 @@ def generate_combined_graphs(sql_path: pathlib.Path):
     axes[1].grid(True)
 
     # Genre Distribution
-    axes[2].bar(genres, genre_counts, color="skyblue")
+    axes[2].bar(genres, genre_counts, color=sns.color_palette("coolwarm", len(genres)))
     axes[2].set_title("Song Genre Distribution")
     axes[2].set_xlabel("Genre")
     axes[2].set_ylabel("Number of Songs")

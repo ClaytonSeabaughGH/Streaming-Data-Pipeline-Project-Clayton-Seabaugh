@@ -1,8 +1,10 @@
-{"title": "Imagine", "artist": "Queen", "genre": "Hip-Hop", "duration_seconds": 372, "release_year": 1994, "sentiment": 0.12}
-{"title": "Bohemian Rhapsody", "artist": "Led Zeppelin", "genre": "Pop", "duration_seconds": 367, "release_year": 2013, "sentiment": 0.01}
-{"title": "Smells Like Teen Spirit", "artist": "Eagles", "genre": "Pop", "duration_seconds": 459, "release_year": 1973, "sentiment": 0.89}
-{"title": "Bohemian Rhapsody", "artist": "Queen", "genre": "Rock", "duration_seconds": 499, "release_year": 1989, "sentiment": 0.57}
-{"title": "Bohemian Rhapsody", "artist": "John Lennon", "genre": "Classical", "duration_seconds": 208, "release_year": 2009, "sentiment": 0.57}
-{"title": "Hotel California", "artist": "Led Zeppelin", "genre": "Rock", "duration_seconds": 587, "release_year": 1992, "sentiment": 0.56}
-{"title": "Imagine", "artist": "Eagles", "genre": "Jazz", "duration_seconds": 347, "release_year": 2011, "sentiment": 0.38}
-{"title": "Smells Like Teen Spirit", "artist": "John Lennon", "genre": "Classical", "duration_seconds": 308, "release_year": 2013, "sentiment": 0.91}
+{"title": "Smells Like Teen Spirit", "artist": "Eagles", "genre": "Pop", "duration_seconds": 186, "release_year": 1992, "sentiment": 0.31}
+{"title": "Stairway to Heaven", "artist": "Nirvana", "genre": "Classical", "duration_seconds": 338, "release_year": 2017, "sentiment": 0.98}
+{"title": "Smells Like Teen Spirit", "artist": "Queen", "genre": "Hip-Hop", "duration_seconds": 232, "release_year": 1968, "sentiment": 0.52}
+{"title": "Hotel California", "artist": "Led Zeppelin", "genre": "Classical", "duration_seconds": 488, "release_year": 1997, "sentiment": 0.76}
+{"title": "Smells Like Teen Spirit", "artist": "Led Zeppelin", "genre": "Pop", "duration_seconds": 367, "release_year": 2008, "sentiment": 0.66}
+{"title": "Imagine", "artist": "Nirvana", "genre": "Jazz", "duration_seconds": 226, "release_year": 1966, "sentiment": 0.57}
+{"title": "Smells Like Teen Spirit", "artist": "Led Zeppelin", "genre": "Jazz", "duration_seconds": 336, "release_year": 1998, "sentiment": 0.96}
+{"title": "Stairway to Heaven", "artist": "John Lennon", "genre": "Jazz", "duration_seconds": 322, "release_year": 1986, "sentiment": 0.46}
+{"title": "Smells Like Teen Spirit", "artist": "Led Zeppelin", "genre": "Hip-Hop", "duration_seconds": 253, "release_year": 2013, "sentiment": 0.58}
+{"title": "Imagine", "artist": "Led Zeppelin", "genre": "Hip-Hop", "duration_seconds": 355, "release_year": 2010, "sentiment": 0.61}
