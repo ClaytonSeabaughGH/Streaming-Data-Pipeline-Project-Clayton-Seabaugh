@@ -76,14 +76,28 @@ Use a `.env` file or `utils_config` module to set up:
 
 ### 4️⃣ Start the Kafka Producer
 Run the producer to send song data:
+
+Windows:
 ```sh
 python kafka_producer_seabaugh.py
+```
+Mac/Linux:
+```sh
+source .venv/bin/activate
+python3 -m producers.producer_song_attributes
 ```
 
 ### 5️⃣ Start the Kafka Consumer
 Run the consumer to process and store messages:
+
+Windows:
 ```sh
 python kafka_consumer_seabaugh.py
+```
+Mac/Linux:
+```sh
+source .venv/bin/activate
+python3 -m consumers.kafka_consumer_song_attributes
 ```
 
 📊 Data Visualization
