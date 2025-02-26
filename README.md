@@ -1,11 +1,11 @@
-Kafka Producer & Consumer Project: Clayton Seabaugh 
+# Kafka Producer & Consumer Project: Clayton Seabaugh 
 
 Welcome to Clayton Seabaugh's Kafka Producer & Consumer Project, where real-time data streaming meets powerful analytics! 🚀
 
-📌 Overview
+## 📌 Overview
 This system consists of both a Kafka Producer and a Kafka Consumer to handle real-time streaming of JSON messages related to song attributes. The producer sends song data to a Kafka topic, while the consumer processes the messages, performs sentiment analysis, and stores them in an SQLite database. It also generates insightful graphs for visualization.
 
-🔥 Features
+## 🔥 Features
 ### Producer Features
 - **Real-Time Data Streaming**: Sends song-related JSON messages to a Kafka topic.
 - **Dynamic Message Generation**: Simulates song metadata including title, artist, genre, duration, release year, and sentiment.
@@ -18,13 +18,13 @@ This system consists of both a Kafka Producer and a Kafka Consumer to handle rea
 - **Graph Generation**: Creates visual representations of release trends, sentiment over time, and genre distribution.
 - **Logging & Alerts**: Tracks operations and ensures transparent debugging.
 
-🛠️ How It Works
+## 🛠️ How It Works
 1. Kafka Producer generates song data and sends it to a Kafka topic.
 2. Kafka Consumer retrieves messages from the topic, processes them, and performs analysis.
 3. **Database Storage**: Processed messages are inserted into an SQLite database.
 4. **Graph Generation**: Consumer generates graphs showcasing trends in music data.
 
-🏭️ Setup & Execution
+## 🏭️ Setup & Execution
 ### 1️⃣ Install Dependencies
 Ensure you have all required Python packages installed:
 ```sh
@@ -100,7 +100,7 @@ source .venv/bin/activate
 python3 -m consumers.kafka_consumer_song_attributes
 ```
 
-📊 Data Visualization
+## 📊 Data Visualization
 Once messages are processed, the consumer generates graphs:
 - **Song Release Trends**: Line graph of release years over time.
 - **Sentiment Analysis Over Time**: Tracks how song sentiment evolves by release year.
@@ -108,11 +108,11 @@ Once messages are processed, the consumer generates graphs:
 
 Graphs are saved as `combined_graphs.png` in the working directory.
 
-🚀 Future Enhancements
+## 🚀 Future Enhancements
 - Real-time dashboard for visualization 📊
 - Integration with external databases like PostgreSQL 🟢
 - Machine learning-powered sentiment analysis 🤖
 
-📢 Final Words
+## 📢 Final Words 
 With Clayton Seabaugh's Kafka Producer & Consumer, you can efficiently stream, process, and analyze music data in real-time. Whether you're tracking trends or diving deep into sentiment analysis, this system has you covered. Happy streaming! 🎶
 
