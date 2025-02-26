@@ -185,7 +185,7 @@ def generate_combined_graphs(sql_path: pathlib.Path):
     genre_counts = [row[1] for row in genre_data]
 
     # Set style
-    sns.set_style("whitegrid")
+    sns.set_style("darkgrid")
     sns.set_palette("husl")
 
     # Create subplots (1 row, 3 columns)

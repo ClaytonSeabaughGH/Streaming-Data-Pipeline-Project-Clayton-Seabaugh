@@ -1,7 +1,11 @@
-{"title": "Bohemian Rhapsody", "artist": "Led Zeppelin", "genre": "Hip-Hop", "duration_seconds": 546, "release_year": 1994, "sentiment": 0.2}
-{"title": "Stairway to Heaven", "artist": "Queen", "genre": "Jazz", "duration_seconds": 349, "release_year": 1992, "sentiment": 0.59}
-{"title": "Smells Like Teen Spirit", "artist": "Nirvana", "genre": "Hip-Hop", "duration_seconds": 255, "release_year": 1969, "sentiment": 0.9}
-{"title": "Stairway to Heaven", "artist": "John Lennon", "genre": "Pop", "duration_seconds": 432, "release_year": 2014, "sentiment": 0.55}
-{"title": "Smells Like Teen Spirit", "artist": "John Lennon", "genre": "Pop", "duration_seconds": 464, "release_year": 2012, "sentiment": 0.86}
-{"title": "Stairway to Heaven", "artist": "Led Zeppelin", "genre": "Hip-Hop", "duration_seconds": 192, "release_year": 1997, "sentiment": 0.72}
-{"title": "Bohemian Rhapsody", "artist": "Queen", "genre": "Jazz", "duration_seconds": 561, "release_year": 1960, "sentiment": 0.31}
+{"title": "Hotel California", "artist": "Led Zeppelin", "genre": "Jazz", "duration_seconds": 341, "release_year": 1999, "sentiment": 0.42}
+{"title": "Imagine", "artist": "Nirvana", "genre": "Classical", "duration_seconds": 194, "release_year": 2007, "sentiment": 0.59}
+{"title": "Bohemian Rhapsody", "artist": "Nirvana", "genre": "Jazz", "duration_seconds": 435, "release_year": 2009, "sentiment": 0.04}
+{"title": "Hotel California", "artist": "Queen", "genre": "Rock", "duration_seconds": 234, "release_year": 1993, "sentiment": 0.59}
+{"title": "Stairway to Heaven", "artist": "John Lennon", "genre": "Classical", "duration_seconds": 405, "release_year": 1961, "sentiment": 0.72}
+{"title": "Bohemian Rhapsody", "artist": "John Lennon", "genre": "Rock", "duration_seconds": 404, "release_year": 1990, "sentiment": 0.52}
+{"title": "Imagine", "artist": "Led Zeppelin", "genre": "Pop", "duration_seconds": 416, "release_year": 1960, "sentiment": 0.41}
+{"title": "Hotel California", "artist": "Led Zeppelin", "genre": "Pop", "duration_seconds": 243, "release_year": 2001, "sentiment": 0.92}
+{"title": "Stairway to Heaven", "artist": "Nirvana", "genre": "Hip-Hop", "duration_seconds": 346, "release_year": 2020, "sentiment": 0.23}
+{"title": "Hotel California", "artist": "Eagles", "genre": "Rock", "duration_seconds": 518, "release_year": 1972, "sentiment": 0.06}
+{"title": "Hotel California", "artist": "John Lennon", "genre": "Hip-Hop", "duration_seconds": 405, "release_year": 1983, "sentiment": 0.95}
