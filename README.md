@@ -1,6 +1,6 @@
-# Kafka Producer & Consumer Project: Clayton Seabaugh 
+# Streaming Data Pipeline Project: Clayton Seabaugh 
 
-Welcome to Clayton Seabaugh's Kafka Producer & Consumer Project, where real-time data streaming meets powerful analytics! 🚀
+Welcome to Clayton Seabaugh's Data Pipeline Project, where real-time data streaming meets powerful analytics! 🚀
 
 ## 📌 Overview
 This system consists of both a Kafka Producer and a Kafka Consumer to handle real-time streaming of JSON messages related to song attributes. The producer sends song data to a Kafka topic, while the consumer processes the messages, performs sentiment analysis, and stores them in an SQLite database. It also generates insightful graphs for visualization.
@@ -114,5 +114,5 @@ Graphs are saved as `combined_graphs.png` in the working directory.
 - Machine learning-powered sentiment analysis 🤖
 
 ## 📢 Final Words 
-With Clayton Seabaugh's Kafka Producer & Consumer, you can efficiently stream, process, and analyze music data in real-time. Whether you're tracking trends or diving deep into sentiment analysis, this system has you covered. Happy streaming! 🎶
+With Clayton Seabaugh's Data Pipeline, you can efficiently stream, process, and analyze music data in real-time. Whether you're tracking trends or diving deep into sentiment analysis, this system has you covered. Happy streaming! 🎶
 
