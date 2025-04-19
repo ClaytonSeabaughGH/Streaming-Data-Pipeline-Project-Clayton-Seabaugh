@@ -109,9 +109,9 @@ Once messages are processed, the consumer generates graphs:
 Graphs are saved as `combined_graphs.png` in the working directory.
 
 ## Future Enhancements
-- Real-time dashboard for visualization 📊
-- Integration with external databases like PostgreSQL 🟢
-- Machine learning-powered sentiment analysis 🤖
+- Real-time dashboard for visualization 
+- Integration with external databases like PostgreSQL 
+- Machine learning-powered sentiment analysis 
 
 ## Final Words 
 With Clayton Seabaugh's Data Pipeline, you can efficiently stream, process, and analyze music data in real-time. Whether you're tracking trends or diving deep into sentiment analysis, this system has you covered. Happy streaming! 🎶
