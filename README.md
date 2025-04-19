@@ -5,7 +5,7 @@ Welcome to Clayton Seabaugh's Data Pipeline Project, where real-time data stream
 ## 📌 Overview
 This system consists of both a Kafka Producer and a Kafka Consumer to handle real-time streaming of JSON messages related to song attributes. The producer sends song data to a Kafka topic, while the consumer processes the messages, performs sentiment analysis, and stores them in an SQLite database. It also generates insightful graphs for visualization.
 
-## 🔥 Features
+## Features
 ### Producer Features
 - **Real-Time Data Streaming**: Sends song-related JSON messages to a Kafka topic.
 - **Dynamic Message Generation**: Simulates song metadata including title, artist, genre, duration, release year, and sentiment.
@@ -18,20 +18,20 @@ This system consists of both a Kafka Producer and a Kafka Consumer to handle rea
 - **Graph Generation**: Creates visual representations of release trends, sentiment over time, and genre distribution.
 - **Logging & Alerts**: Tracks operations and ensures transparent debugging.
 
-## 🛠️ How It Works
+## How It Works
 1. Kafka Producer generates song data and sends it to a Kafka topic.
 2. Kafka Consumer retrieves messages from the topic, processes them, and performs analysis.
 3. **Database Storage**: Processed messages are inserted into an SQLite database.
 4. **Graph Generation**: Consumer generates graphs showcasing trends in music data.
 
-## 🏭️ Setup & Execution
-### 1️⃣ Install Dependencies
+## Setup & Execution
+### 1️. Install Dependencies
 Ensure you have all required Python packages installed:
 ```sh
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Install & Start Kafka
+### 2️. Install & Start Kafka
 #### **Windows (Using WSL) & Linux:**
 ```sh
 wget https://downloads.apache.org/kafka/3.5.1/kafka_2.13-3.5.1.tgz
@@ -66,7 +66,7 @@ Create a Kafka topic:
 kafka-topics --create --topic song-stream --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
 ```
 
-### 3️⃣ Configure Environment Variables
+### 3️. Configure Environment Variables
 Use a `.env` file or `utils_config` module to set up:
 - Kafka topic
 - Kafka broker address
@@ -74,7 +74,7 @@ Use a `.env` file or `utils_config` module to set up:
 - Consumer group ID
 - SQLite database file path
 
-### 4️⃣ Start the Kafka Producer
+### 4️. Start the Kafka Producer
 Run the producer to send song data:
 
 Windows:
@@ -87,7 +87,7 @@ source .venv/bin/activate
 python3 -m producers.producer_song_attributes
 ```
 
-### 5️⃣ Start the Kafka Consumer
+### 5️. Start the Kafka Consumer
 Run the consumer to process and store messages:
 
 Windows:
@@ -100,7 +100,7 @@ source .venv/bin/activate
 python3 -m consumers.kafka_consumer_song_attributes
 ```
 
-## 📊 Data Visualization
+## Data Visualization
 Once messages are processed, the consumer generates graphs:
 - **Song Release Trends**: Line graph of release years over time.
 - **Sentiment Analysis Over Time**: Tracks how song sentiment evolves by release year.
@@ -108,11 +108,11 @@ Once messages are processed, the consumer generates graphs:
 
 Graphs are saved as `combined_graphs.png` in the working directory.
 
-## 🚀 Future Enhancements
+## Future Enhancements
 - Real-time dashboard for visualization 📊
 - Integration with external databases like PostgreSQL 🟢
 - Machine learning-powered sentiment analysis 🤖
 
-## 📢 Final Words 
+## Final Words 
 With Clayton Seabaugh's Data Pipeline, you can efficiently stream, process, and analyze music data in real-time. Whether you're tracking trends or diving deep into sentiment analysis, this system has you covered. Happy streaming! 🎶
 
